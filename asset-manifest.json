@@ -1,14 +1,16 @@
 {
   "files": {
     "main.css": "/aboutme/static/css/main.587b702c.css",
-    "main.js": "/aboutme/static/js/main.b6180604.js",
+    "main.js": "/aboutme/static/js/main.aaedf102.js",
     "static/media/01-big.jpg": "/aboutme/static/media/01-big.0d2b9dae580a6c5ebbad.jpg",
+    "static/media/04-big.jpg": "/aboutme/static/media/04-big.c0977e9e7aed0e3076d8.jpg",
     "static/media/03-big.jpg": "/aboutme/static/media/03-big.e48daff4f663a396d6bb.jpg",
     "static/media/header-bg.png": "/aboutme/static/media/header-bg.7d01c646f9128592aef5.png",
     "static/media/02-big.jpg": "/aboutme/static/media/02-big.8a4d70bf6ee8d5960488.jpg",
     "static/media/renpy.svg": "/aboutme/static/media/renpy.74ba373e6fe4a4c4f451b3d26805ab2e.svg",
     "static/media/loading.gif": "/aboutme/static/media/loading.4e713e74fbb2b4e6f5d7.gif",
     "static/media/01.jpg": "/aboutme/static/media/01.153505339cc1d15c6a92.jpg",
+    "static/media/04.jpg": "/aboutme/static/media/04.fec0e6b0f59a4f000191.jpg",
     "static/media/03.jpg": "/aboutme/static/media/03.01b1e5ac7db43b47776a.jpg",
     "static/media/02.jpg": "/aboutme/static/media/02.62aff90719cb85e0f282.jpg",
     "static/media/react.svg": "/aboutme/static/media/react.2b6a071759fcdac074f4dcad26eef347.svg",
@@ -33,10 +35,10 @@
     "static/media/figma.svg": "/aboutme/static/media/figma.1cd446080336901b93673164fe5bdcf2.svg",
     "static/media/angular.svg": "/aboutme/static/media/angular.d4cb4fa5908f614ceb0969ed92e02f9c.svg",
     "main.587b702c.css.map": "/aboutme/static/css/main.587b702c.css.map",
-    "main.b6180604.js.map": "/aboutme/static/js/main.b6180604.js.map"
+    "main.aaedf102.js.map": "/aboutme/static/js/main.aaedf102.js.map"
   },
   "entrypoints": [
     "static/css/main.587b702c.css",
-    "static/js/main.b6180604.js"
+    "static/js/main.aaedf102.js"
   ]
 }

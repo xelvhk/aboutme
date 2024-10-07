@@ -9,3 +9,4 @@
 ## Things to do
 - fetching repositories from GitHub like a projects
 - blog page
+- feedback bot

@@ -1,0 +1,103 @@
+/* Nav */
+
+.dark .nav {
+	background-color: var(--nav-bg);
+
+}
+
+.nav {
+	background-color: var(--primary-color);
+	border-bottom: 1px solid var(--nav-border);
+	color: var(--nav-text);
+	letter-spacing: normal;
+	padding: 20px 0;
+}
+
+.nav-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	column-gap: 20px;
+	row-gap: 20px;
+	flex-wrap: wrap;
+	padding: 20px;
+}
+
+.logo {
+	color: var(--nav-text);
+	font-size: 24px;
+	font-family: 'Poppins', sans-serif;
+}
+
+.logo strong {
+	font-weight: 700;
+}
+
+.nav-list {
+	display: flex;
+	flex-wrap: wrap;
+	row-gap: 10px;
+	align-items: center;
+	column-gap: 80px;
+	font-size: 20px;
+	font-weight: 500;
+	font-family: 'Poppins', sans-serif;
+	margin-left: 2rem;
+}
+
+.nav-list-link {
+	color: var(--nav-text);
+	transition: opacity 0.2s ease-in;
+}
+
+.nav-list-link:hover {
+	opacity: 0.8;
+}
+
+.nav-list-link--active {
+	position: relative;
+}
+
+.nav-list-link--active::before {
+	content: '';
+
+	position: absolute;
+	left: 0;
+	top: 100%;
+
+	display: block;
+	height: 2px;
+	width: 100%;
+	background-color: var(--accent);
+}
+
+/* Nav controls wrapper */
+.nav-controls {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+	.nav-row {
+		justify-content: center;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	
+	.nav-controls {
+		order: 2;
+		gap: 0.5rem;
+	}
+	
+	.nav-list {
+		margin-left: 0;
+		justify-content: center;
+		order: 3;
+	}
+	
+	.dark-mode-btn {
+		margin-left: 0;
+	}
+}

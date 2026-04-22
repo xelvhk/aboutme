@@ -68,7 +68,6 @@ const Projects = () => {
 
 							{grouped.sites && grouped.sites.length > 0 && (
 								<>
-									<h4 className='blog-subtitle'>{t('projects.sites') || 'Sites'}</h4>
 									<Row className="blog-grid align-items-stretch">
 										{grouped.sites.map((p, idx) => (
 											<Col xs={12} md={6} lg={4} key={`site-${idx}`}>

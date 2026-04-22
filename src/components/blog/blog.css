@@ -89,6 +89,39 @@
     border-radius: 12px;
 }
 
+.project-card-preview {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
+}
+
+.project-card-preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+}
+
+.project-card-preview-placeholder {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    border: 1px dashed rgba(255, 255, 255, 0.35);
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12), transparent 50%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.08));
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-align: center;
+    padding: 1rem;
+}
+
 /* Projects page right-side image: take ~35% width and 4:3 */
 .project-card-side { display: none; }
 @media (min-width: 768px) {

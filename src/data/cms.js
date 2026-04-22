@@ -22,11 +22,18 @@ const sampleBlogPosts = [
 const STORAGE_KEYS = {
     projects: 'cms.projects',
     posts: 'cms.posts',
-    githubCache: 'cms.github.projects.cache'
+    githubCache: 'cms.github.projects.cache.v2'
 };
 
 const GITHUB_USER = 'xelvhk';
 const GITHUB_CACHE_TTL_MS = 6 * 60 * 60 * 1000;
+const PROJECT_DESCRIPTION_RU = {
+    vasya_ai: 'Локальный AI-ассистент для desktop-задач: голосовые команды, автоматизация и развитие агентных сценариев.',
+    attendance_bot: 'Telegram-бот для учета посещаемости, реализованный на Aiogram.',
+    js_marvel: 'Веб-приложение с персонажами Marvel и загрузкой данных из внешнего API.',
+    'login-form-with-animation': 'Анимированная форма авторизации с упором на UI/UX и микроанимации.',
+    'http-queries': 'Учебный проект по HTTP-протоколу и сетевым запросам.',
+};
 
 function readFromStorage(key, fallback) {
     try {
@@ -53,6 +60,20 @@ function ensureIds(items, prefix) {
     }));
 }
 
+function getRussianDescription(repo) {
+    const key = String(repo?.name || '').toLowerCase();
+    if (PROJECT_DESCRIPTION_RU[key]) {
+        return PROJECT_DESCRIPTION_RU[key];
+    }
+
+    const parts = ['Проект из GitHub-портфолио.'];
+    if (repo?.language) {
+        parts.push(`Основной язык: ${repo.language}.`);
+    }
+    parts.push('Код и детали реализации доступны в репозитории.');
+    return parts.join(' ');
+}
+
 function formatGithubRepo(repo) {
     const skills = [];
 
@@ -71,7 +92,7 @@ function formatGithubRepo(repo) {
         title_ru: repo.name || '',
         description: repo.description || '',
         description_en: repo.description || '',
-        description_ru: repo.description || '',
+        description_ru: getRussianDescription(repo),
         skills: skills.join(', '),
         gitHubLink: repo.html_url || '',
         liveLink: repo.homepage || '',
@@ -218,4 +239,3 @@ export const cms = {
         return true;
     },
 };
-

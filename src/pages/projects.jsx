@@ -73,36 +73,33 @@ const Projects = () => {
 										{grouped.sites.map((p, idx) => (
 											<Col xs={12} md={6} lg={4} key={`site-${idx}`}>
 												<Card className="project-card blog-card h-100">
-													<div className="blog-card-inner">
-														<Card.Body className="blog-card-content">
-															<Card.Title className="blog-card-title">{getLocalized(p, 'title')}</Card.Title>
-															{getLocalized(p, 'description') && (
-																<Card.Text className="blog-card-excerpt">{getLocalized(p, 'description')}</Card.Text>
-															)}
-															<div className="blog-card-meta">
-																<small className="text-muted">{t('projects.viewProject')}</small>
+													<div className="project-card-preview">
+														{p.img ? (
+															<img src={p.img} alt={getLocalized(p, 'title')} className="project-card-preview-image" />
+														) : (
+															<div className="project-card-preview-placeholder">
+																<span>{noPreviewLabel}</span>
 															</div>
-															<div className="blog-card-tags mt-2">
-																{p.skills && p.skills.split(',').slice(0,3).map((s, i) => (
-																	<Badge key={i} bg="light" text="dark" className="me-1">{s.trim()}</Badge>
-																))}
-															</div>
-															{p.gitHubLink && (
-																<a href={p.gitHubLink} target="_blank" rel="noreferrer" className="blog-back-btn" style={{marginTop: '1rem'}}>
-																	{t('projects.githubLink')}
-																</a>
-															)}
-														</Card.Body>
-														<div className="project-card-side d-none d-md-block">
-															{p.img ? (
-																<img src={p.img} alt={getLocalized(p, 'title')} className="project-card-side-image" />
-															) : (
-																<div className="project-card-side-placeholder">
-																	<span>{noPreviewLabel}</span>
-																</div>
-															)}
-														</div>
+														)}
 													</div>
+													<Card.Body className="blog-card-content">
+														{getLocalized(p, 'description') && (
+															<Card.Text className="blog-card-excerpt">{getLocalized(p, 'description')}</Card.Text>
+														)}
+														<div className="blog-card-meta">
+															<small className="text-muted">{t('projects.viewProject')}</small>
+														</div>
+														<div className="blog-card-tags mt-2">
+															{p.skills && p.skills.split(',').slice(0,3).map((s, i) => (
+																<Badge key={i} bg="light" text="dark" className="me-1">{s.trim()}</Badge>
+															))}
+														</div>
+														{p.gitHubLink && (
+															<a href={p.gitHubLink} target="_blank" rel="noreferrer" className="blog-back-btn" style={{marginTop: '1rem'}}>
+																{t('projects.githubLink')}
+															</a>
+														)}
+													</Card.Body>
 												</Card>
 											</Col>
 										))}

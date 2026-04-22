@@ -39,6 +39,8 @@ const Projects = () => {
 		return item[`${field}_en`] || item[`${field}_ru`] || item[field] || '';
 	};
 
+	const noPreviewLabel = language === 'ru' ? 'Превью скоро' : 'Preview soon';
+
 	if (loading) {
 		return (
 			<section>
@@ -67,9 +69,9 @@ const Projects = () => {
 							{grouped.sites && grouped.sites.length > 0 && (
 								<>
 									<h4 className='blog-subtitle'>{t('projects.sites') || 'Sites'}</h4>
-									<Row className="blog-grid">
+									<Row className="blog-grid align-items-stretch">
 										{grouped.sites.map((p, idx) => (
-											<Col md={6} lg={4} key={`site-${idx}`}>
+											<Col xs={12} md={6} lg={4} key={`site-${idx}`}>
 												<Card className="project-card blog-card h-100">
 													<div className="blog-card-inner">
 														<Card.Body className="blog-card-content">
@@ -91,11 +93,15 @@ const Projects = () => {
 																</a>
 															)}
 														</Card.Body>
-														{p.img && (
-															<div className="project-card-side d-none d-md-block">
+														<div className="project-card-side d-none d-md-block">
+															{p.img ? (
 																<img src={p.img} alt={getLocalized(p, 'title')} className="project-card-side-image" />
-															</div>
-														)}
+															) : (
+																<div className="project-card-side-placeholder">
+																	<span>{noPreviewLabel}</span>
+																</div>
+															)}
+														</div>
 													</div>
 												</Card>
 											</Col>

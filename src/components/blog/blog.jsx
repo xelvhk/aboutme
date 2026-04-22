@@ -71,6 +71,8 @@ const Blog = () => {
         return post[`${field}_en`] || post[`${field}_ru`] || post[field] || '';
     };
 
+    const noPreviewLabel = language === 'ru' ? 'Превью скоро' : 'Preview soon';
+
     if (selectedPost) {
         return (
             <section>
@@ -142,44 +144,50 @@ const Blog = () => {
                                                 onClick={() => setSelectedPost(post)}
                                                 style={{ cursor: 'pointer' }}
                                             >
-                                                <div className="blog-card-inner">
-                                                    <Card.Body className="blog-card-content">
-                                                        <Card.Title className="blog-card-title">
-                                                            {getLocalized(post, 'title')}
-                                                        </Card.Title>
-                                                        
-                                                        <Card.Text className="blog-card-excerpt">
-                                                            {getLocalized(post, 'excerpt')}
-                                                        </Card.Text>
-                                                        
-                                                        <div className="blog-card-meta">
-                                                            <small className="text-muted">
-                                                                {formatDate(post.publishedAt)}
-                                                            </small>
-                                                            
-                                                        </div>
-
-                                                        {post.tags && post.tags.length > 0 && (
-                                                            <div className="blog-card-tags mt-2">
-                                                                {post.tags.slice(0, 3).map((tag, index) => (
-                                                                    <Badge key={index} bg="light" text="dark" className="me-1">
-                                                                        {tag}
-                                                                    </Badge>
-                                                                ))}
-                                                                {post.tags.length > 3 && (
-                                                                    <Badge bg="light" text="dark">
-                                                                        +{post.tags.length - 3}
-                                                                    </Badge>
-                                                                )}
-                                                            </div>
-                                                        )}
-                                                    </Card.Body>
-                                                    {post.image && (
-                                                        <div className="blog-card-side d-none d-md-block">
-                                                            <img src={post.image} alt={post.title} className="blog-card-side-image" />
+                                                <div className="project-card-preview">
+                                                    {post.image ? (
+                                                        <img
+                                                            src={post.image}
+                                                            alt={getLocalized(post, 'title')}
+                                                            className="project-card-preview-image"
+                                                        />
+                                                    ) : (
+                                                        <div className="project-card-preview-placeholder">
+                                                            <span>{noPreviewLabel}</span>
                                                         </div>
                                                     )}
                                                 </div>
+                                                <Card.Body className="blog-card-content">
+                                                    <Card.Title className="blog-card-title">
+                                                        {getLocalized(post, 'title')}
+                                                    </Card.Title>
+                                                    
+                                                    <Card.Text className="blog-card-excerpt">
+                                                        {getLocalized(post, 'excerpt')}
+                                                    </Card.Text>
+                                                    
+                                                    <div className="blog-card-meta">
+                                                        <small className="text-muted">
+                                                            {formatDate(post.publishedAt)}
+                                                        </small>
+                                                        
+                                                    </div>
+
+                                                    {post.tags && post.tags.length > 0 && (
+                                                        <div className="blog-card-tags mt-2">
+                                                            {post.tags.slice(0, 3).map((tag, index) => (
+                                                                <Badge key={index} bg="light" text="dark" className="me-1">
+                                                                    {tag}
+                                                                </Badge>
+                                                            ))}
+                                                            {post.tags.length > 3 && (
+                                                                <Badge bg="light" text="dark">
+                                                                    +{post.tags.length - 3}
+                                                                </Badge>
+                                                            )}
+                                                        </div>
+                                                    )}
+                                                </Card.Body>
                                             </Card>
                                         </Col>
                                     ))}

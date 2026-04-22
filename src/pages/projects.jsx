@@ -86,9 +86,6 @@ const Projects = () => {
 														{getLocalized(p, 'description') && (
 															<Card.Text className="blog-card-excerpt">{getLocalized(p, 'description')}</Card.Text>
 														)}
-														<div className="blog-card-meta">
-															<small className="text-muted">{t('projects.viewProject')}</small>
-														</div>
 														<div className="blog-card-tags mt-2">
 															{p.skills && p.skills.split(',').slice(0,3).map((s, i) => (
 																<Badge key={i} bg="light" text="dark" className="me-1">{s.trim()}</Badge>

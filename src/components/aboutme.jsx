@@ -14,8 +14,8 @@ function Aboutme() {
     return (
         <div className='about-page-background'>
             <Container>
-                <Row className='text-background'>
-                    <Col md={5}>
+                <Row className='text-background justify-content-center'>
+                    <Col xs={12} lg={10} xl={8}>
                         <h3 className='about-me-text'>{t('about.title')}</h3>
                         <p className='about-me-details'>{t('about.description')}</p>
                         <div className="skills-container">

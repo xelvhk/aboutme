@@ -162,6 +162,76 @@
     padding: 1rem;
 }
 
+.project-skeleton-card {
+    pointer-events: none;
+}
+
+.project-skeleton-preview,
+.project-skeleton-line,
+.project-skeleton-pill {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.project-skeleton-preview::after,
+.project-skeleton-line::after,
+.project-skeleton-pill::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.35) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    animation: project-skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+.project-skeleton-preview {
+    border-radius: 12px;
+}
+
+.project-skeleton-line {
+    height: 0.9rem;
+    border-radius: 999px;
+    margin: 0 auto 0.65rem;
+}
+
+.project-skeleton-line-lg {
+    width: 85%;
+}
+
+.project-skeleton-line-md {
+    width: 72%;
+}
+
+.project-skeleton-line-btn {
+    width: 36%;
+    margin-top: 0.65rem;
+}
+
+.project-skeleton-tags {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0.75rem 0;
+}
+
+.project-skeleton-pill {
+    width: 3.3rem;
+    height: 1.55rem;
+    border-radius: 999px;
+}
+
+@keyframes project-skeleton-shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
 /* Projects page right-side image: take ~35% width and 4:3 */
 .project-card-side { display: none; }
 @media (min-width: 768px) {

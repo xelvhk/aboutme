@@ -74,6 +74,28 @@ const Projects = () => {
 
 	const noPreviewLabel = language === 'ru' ? 'Превью скоро' : 'Preview soon';
 
+	const renderSkeletonCards = () => (
+		<Row className="blog-grid align-items-stretch">
+			{Array.from({ length: 6 }).map((_, idx) => (
+				<Col xs={12} md={6} lg={4} key={`skeleton-${idx}`}>
+					<Card className="project-card blog-card h-100 project-skeleton-card">
+						<div className="project-card-preview project-skeleton-preview" />
+						<Card.Body className="blog-card-content">
+							<div className="project-skeleton-line project-skeleton-line-lg" />
+							<div className="project-skeleton-line project-skeleton-line-md" />
+							<div className="project-skeleton-tags">
+								<span className="project-skeleton-pill" />
+								<span className="project-skeleton-pill" />
+								<span className="project-skeleton-pill" />
+							</div>
+							<div className="project-skeleton-line project-skeleton-line-btn" />
+						</Card.Body>
+					</Card>
+				</Col>
+			))}
+		</Row>
+	);
+
 	if (loading) {
 		return (
 			<section>
@@ -83,6 +105,7 @@ const Projects = () => {
 							<Col md={12}>
 								<h3 className='about-me-text'>{t('projects.title')}</h3>
 								<p className="blog-subtitle">{t('projects.loading')}</p>
+								{renderSkeletonCards()}
 							</Col>
 						</Row>
 					</Container>

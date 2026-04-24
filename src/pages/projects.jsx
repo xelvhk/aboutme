@@ -8,6 +8,7 @@ const Projects = () => {
 	const { t, language } = useTranslation();
 	const [projects, setProjects] = useState([]);
 	const [loading, setLoading] = useState(true);
+	const [activeTopic, setActiveTopic] = useState('all');
 
 	useEffect(() => {
 		const loadProjects = async () => {
@@ -31,6 +32,38 @@ const Projects = () => {
 			design: all.filter(p => p.type === 'design'),
 		};
 	}, [projects]);
+
+	const getProjectTopics = (project) => {
+		if (Array.isArray(project?.topics) && project.topics.length > 0) {
+			return project.topics.map((topic) => String(topic).trim().toLowerCase()).filter(Boolean);
+		}
+
+		if (typeof project?.skills === 'string' && project.skills.trim()) {
+			return project.skills
+				.split(',')
+				.map((skill) => skill.trim().toLowerCase())
+				.filter(Boolean);
+		}
+
+		return [];
+	};
+
+	const topicOptions = useMemo(() => {
+		const topics = new Set();
+		(grouped.sites || []).forEach((project) => {
+			getProjectTopics(project).forEach((topic) => topics.add(topic));
+		});
+		return Array.from(topics).sort((a, b) => a.localeCompare(b));
+	}, [grouped.sites]);
+
+	const filteredSites = useMemo(() => {
+		if (activeTopic === 'all') {
+			return grouped.sites || [];
+		}
+		return (grouped.sites || []).filter((project) =>
+			getProjectTopics(project).includes(activeTopic)
+		);
+	}, [activeTopic, grouped.sites]);
 
 	const getLocalized = (item, field) => {
 		if (language === 'ru') {
@@ -68,8 +101,31 @@ const Projects = () => {
 
 							{grouped.sites && grouped.sites.length > 0 && (
 								<>
+									<div className="projects-filter-block">
+										<span className="projects-filter-label">{t('projects.filterLabel')}</span>
+										<div className="projects-filter-chips">
+											<button
+												type="button"
+												className={`projects-filter-chip ${activeTopic === 'all' ? 'is-active' : ''}`}
+												onClick={() => setActiveTopic('all')}
+											>
+												{t('projects.filterAll')}
+											</button>
+											{topicOptions.map((topic) => (
+												<button
+													type="button"
+													key={topic}
+													className={`projects-filter-chip ${activeTopic === topic ? 'is-active' : ''}`}
+													onClick={() => setActiveTopic(topic)}
+												>
+													{topic}
+												</button>
+											))}
+										</div>
+									</div>
+
 									<Row className="blog-grid align-items-stretch">
-										{grouped.sites.map((p, idx) => (
+										{filteredSites.map((p, idx) => (
 											<Col xs={12} md={6} lg={4} key={`site-${idx}`}>
 												<Card className="project-card blog-card h-100">
 													<div className="project-card-preview">
@@ -147,6 +203,12 @@ const Projects = () => {
 							)} */}
 
 							{!projects || projects.length === 0 ? (
+								<div className="text-center">
+									<h4>{t('projects.noProjects')}</h4>
+								</div>
+							) : null}
+
+							{projects.length > 0 && filteredSites.length === 0 ? (
 								<div className="text-center">
 									<h4>{t('projects.noProjects')}</h4>
 								</div>

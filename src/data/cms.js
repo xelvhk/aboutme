@@ -76,13 +76,16 @@ function getRussianDescription(repo) {
 
 function formatGithubRepo(repo) {
     const skills = [];
+    const topics = Array.isArray(repo.topics)
+        ? repo.topics.filter(Boolean).map((topic) => String(topic).trim().toLowerCase())
+        : [];
 
     if (repo.language) {
         skills.push(repo.language);
     }
 
-    if (Array.isArray(repo.topics) && repo.topics.length > 0) {
-        repo.topics.slice(0, 3).forEach((topic) => skills.push(topic));
+    if (topics.length > 0) {
+        topics.slice(0, 3).forEach((topic) => skills.push(topic));
     }
 
     return {
@@ -94,6 +97,7 @@ function formatGithubRepo(repo) {
         description_en: repo.description || '',
         description_ru: getRussianDescription(repo),
         skills: skills.join(', '),
+        topics,
         gitHubLink: repo.html_url || '',
         liveLink: repo.homepage || '',
         type: 'site',

@@ -18,6 +18,46 @@
     letter-spacing: 1px;
 }
 
+.projects-filter-block {
+    margin: 1rem 0 1.75rem;
+    text-align: center;
+}
+
+.projects-filter-label {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    margin-bottom: 0.65rem;
+}
+
+.projects-filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.projects-filter-chip {
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.95);
+    border-radius: 999px;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.85rem;
+    line-height: 1;
+    transition: all 0.2s ease;
+}
+
+.projects-filter-chip:hover {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+.projects-filter-chip.is-active {
+    background: #ffffff;
+    color: #1e3a8a;
+    border-color: #ffffff;
+}
+
 .blog-card {
     border: none;
     border-radius: 15px;

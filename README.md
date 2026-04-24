@@ -43,10 +43,29 @@ REACT_APP_GITHUB_USER=xelvhk
 - Blog
 ![Blog screenshot](docs/screenshots/blog.png)
 
+## Lighthouse Snapshot
+Measured on April 24, 2026 for: `https://xelvhk.github.io/aboutme/#/`
+
+| Category | Score |
+| --- | --- |
+| Performance | 64 |
+| Accessibility | 92 |
+| Best Practices | 100 |
+| SEO | 100 |
+
+Core metrics:
+- FCP: `2.2 s`
+- LCP: `4.7 s`
+- Speed Index: `4.7 s`
+- TBT: `60 ms`
+- CLS: `0.268`
+
+Raw report: `docs/lighthouse-home.json`
+
 ## Roadmap
-- [ ] Add project filtering by tags/topics from GitHub
-- [ ] Add skeleton loading states for project cards
-- [ ] Add integration tests for CMS adapter behavior
+- [x] Add project filtering by tags/topics from GitHub
+- [x] Add skeleton loading states for project cards
+- [x] Add integration tests for CMS adapter behavior
 - [ ] Add lightweight admin flow for blog post media
 
 ## CI

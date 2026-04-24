@@ -36,7 +36,12 @@ REACT_APP_GITHUB_USER=xelvhk
 
 ## Demo / Screenshots
 - Production: [https://xelvhk.github.io/aboutme/](https://xelvhk.github.io/aboutme/)
-- Screenshots placeholder: add images to `docs/screenshots/`
+- Home
+![Home screenshot](docs/screenshots/home.png)
+- Projects
+![Projects screenshot](docs/screenshots/projects.png)
+- Blog
+![Blog screenshot](docs/screenshots/blog.png)
 
 ## Roadmap
 - [ ] Add project filtering by tags/topics from GitHub

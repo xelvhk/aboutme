@@ -1,74 +1,50 @@
-# Alex Khvedchenia Portfolio
+# aboutme
 
-Персональное портфолио на React с автоподгрузкой проектов из GitHub и публикацией на GitHub Pages.
+React portfolio with automatic GitHub project sync, bilingual content (RU/EN), and GitHub Pages deployment.
 
-## Links
-- Production: [https://xelvhk.github.io/aboutme/](https://xelvhk.github.io/aboutme/)
-- Repository: [https://github.com/xelvhk/aboutme](https://github.com/xelvhk/aboutme)
+## Problem
+A portfolio should stay up to date without manual copy-paste after every repository update. `aboutme` solves this by loading repositories directly from GitHub API and merging them with manually curated content.
 
 ## Stack
 - React 18
 - React Router
 - React Bootstrap
-- Typewriter Effect
+- LocalStorage-based CMS adapter
 - GitHub Pages (`gh-pages`)
 
-## Features
-- Главная страница с информацией обо мне
-- Раздел Projects с автоподгрузкой репозиториев с GitHub
-- Blog и локальный CMS-адаптер через `localStorage`
-- Двуязычность (RU/EN)
-- Темная тема
-
-## Project Structure
-```text
-.
-├── public/              # статические файлы CRA
-├── src/
-│   ├── components/      # UI-компоненты
-│   ├── data/            # переводы, CMS-адаптер, данные
-│   ├── pages/           # роуты/страницы
-│   ├── styles/          # глобальные стили
-│   └── utils/           # утилиты
-├── ROADMAP.md
-└── CHECKLIST.md
-```
-
-## Local Development
-Requirements:
-- Node.js 18+ (рекомендуется)
-- npm 9+
-
-Install dependencies:
+## Quick Start
 ```bash
+git clone https://github.com/xelvhk/aboutme.git
+cd aboutme
 npm install
-```
-
-Run dev server:
-```bash
+cp .env.example .env
 npm start
 ```
 
-Build for production:
-```bash
-npm run build
+## Environment
+Create `.env` from `.env.example`:
+```env
+REACT_APP_GITHUB_USER=xelvhk
 ```
 
-## Deploy to GitHub Pages
-Публикация настроена через `gh-pages`.
+## Architecture
+- `src/pages/`: Home, Projects, Blog, Contact pages
+- `src/components/`: reusable UI blocks
+- `src/data/cms.js`: local CMS + GitHub sync/cache logic
+- `src/data/translations.js`: RU/EN content
+- `src/helpers/projectsList.js`: local fallback projects
 
-```bash
-npm run deploy
-```
-
-Скрипт:
-1. собирает проект (`npm run build`)
-2. публикует `build/` в ветку `gh-pages`
-
-## Branches
-- `main` — исходники проекта (`src`, `public`, конфиги)
-- `gh-pages` — ветка публикации (статический билд)
+## Demo / Screenshots
+- Production: [https://xelvhk.github.io/aboutme/](https://xelvhk.github.io/aboutme/)
+- Screenshots placeholder: add images to `docs/screenshots/`
 
 ## Roadmap
-- План работ: [`ROADMAP.md`](./ROADMAP.md)
-- Контроль выполнения: [`CHECKLIST.md`](./CHECKLIST.md)
+- [ ] Add project filtering by tags/topics from GitHub
+- [ ] Add skeleton loading states for project cards
+- [ ] Add integration tests for CMS adapter behavior
+- [ ] Add lightweight admin flow for blog post media
+
+## CI
+Minimal CI is configured in `.github/workflows/ci.yml`:
+- `npm ci`
+- `npm run build`

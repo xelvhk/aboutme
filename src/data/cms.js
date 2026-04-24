@@ -25,7 +25,7 @@ const STORAGE_KEYS = {
     githubCache: 'cms.github.projects.cache.v2'
 };
 
-const GITHUB_USER = 'xelvhk';
+const GITHUB_USER = process.env.REACT_APP_GITHUB_USER || 'xelvhk';
 const GITHUB_CACHE_TTL_MS = 6 * 60 * 60 * 1000;
 const PROJECT_DESCRIPTION_RU = {
     vasya_ai: 'Локальный AI-ассистент для desktop-задач: голосовые команды, автоматизация и развитие агентных сценариев.',

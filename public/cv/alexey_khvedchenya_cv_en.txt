@@ -1,0 +1,53 @@
+Alexey Khvedchenya
+Product Engineer (Frontend + AI Automation)
+Location: Russia (remote-ready)
+GitHub: https://github.com/xelvhk
+
+PRODUCT SUMMARY
+I build practical AI-assisted products end-to-end: from user need and scope to shipped feature.
+Strong in rapid iteration, voice/chat UX, and converting ambiguous ideas into clear working flows.
+
+CORE STACK
+- Frontend: React, JavaScript, HTML5, CSS3
+- Backend/Automation: Python, Aiogram, API integrations
+- Product: discovery, feature scoping, iterative delivery, UX polish, release documentation
+- Tools: Git/GitHub, Figma, SQL basics
+
+SELECTED OUTCOMES
+Vasya AI (desktop voice assistant)
+- Built local voice assistant flows for tasks, notes, daily planning, and tool-based actions.
+- Improved interaction speed with fast-path replies, interrupt handling, and status UX.
+- Added extensibility layers (ports/interfaces) for safer scaling of integrations and agents.
+
+Attendance Bot (Telegram, Aiogram)
+- Improved workflow reliability with timezone/status transition edge-case coverage.
+- Added regression checklist for DST, timezone shifts, duplicate statuses, and race conditions.
+
+AI Predictor
+- Introduced Data Trust Layer and formal archive audit contract for safer recommendations.
+- Defined report format for UI and operations (`score`, `risks`, `source`, `gaps`, `issues`).
+
+EXPERIENCE
+Information Security Engineer / System Development Specialist
+NPP Radar MMS | Sep 2024 - Present
+- Improve internal systems with focus on reliability and secure operations.
+- Support documentation quality and cross-functional technical alignment.
+
+Computer Science Teacher
+Hexlet College | Aug 2023 - Present
+- Teach programming and practical software engineering.
+- Mentor project-based delivery and code quality habits.
+
+Deputy Director for Educational Process
+School #20, Saint Petersburg | Sep 2021 - Jul 2023
+- Coordinated educational operations and cross-team communication.
+- Improved planning and process transparency.
+
+Computer Science Teacher
+School #20, Saint Petersburg | Sep 2019 - Jul 2023
+- Taught CS fundamentals and programming.
+- Built reusable practical materials and assignments.
+
+LANGUAGES
+- Russian: Native
+- English: Working proficiency

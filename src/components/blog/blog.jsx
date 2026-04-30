@@ -27,7 +27,8 @@ const Blog = () => {
     }, []);
 
     const formatDate = (dateString) => {
-        return new Date(dateString).toLocaleDateString('en-US', {
+        const locale = language === 'ru' ? 'ru-RU' : 'en-US';
+        return new Date(dateString).toLocaleDateString(locale, {
             year: 'numeric',
             month: 'long',
             day: 'numeric'
@@ -95,7 +96,7 @@ const Blog = () => {
                                         
                                         <div className="blog-post-meta mb-3">
                                             <small className="text-muted">
-                                                By {selectedPost.author} • {formatDate(selectedPost.publishedAt)}
+                                                        {t('blog.byAuthor')} {selectedPost.author} • {formatDate(selectedPost.publishedAt)}
                                             </small>
                                             
                                         </div>
@@ -195,7 +196,7 @@ const Blog = () => {
                             ) : (
                                 <div className="text-center">
                                     <h4>{t('blog.noPosts')}</h4>
-                                    <p>Check back soon for new content!</p>
+                                    <p>{t('blog.checkBackSoon')}</p>
                                 </div>
                             )}
                         </Col>

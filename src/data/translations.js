@@ -74,7 +74,9 @@ export const translations = {
       readMore: 'Read More',
       loading: 'Loading blog posts...',
       noPosts: 'No blog posts found',
-      publishedOn: 'Published on'
+      publishedOn: 'Published on',
+      byAuthor: 'By',
+      checkBackSoon: 'Check back soon for new content!'
     },
     
     // Contacts
@@ -189,7 +191,9 @@ export const translations = {
       readMore: 'Читать далее',
       loading: 'Загрузка постов...',
       noPosts: 'Посты не найдены',
-      publishedOn: 'Опубликовано'
+      publishedOn: 'Опубликовано',
+      byAuthor: 'Автор',
+      checkBackSoon: 'Скоро здесь появятся новые материалы!'
     },
     
     // Contacts

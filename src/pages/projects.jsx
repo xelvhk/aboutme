@@ -121,6 +121,7 @@ const Projects = () => {
 					<Row className='text-background'>
 						<Col md={12}>
 							<h3 className='about-me-text'>{t('projects.title')}</h3>
+							<p className="blog-subtitle">{t('projects.subtitle')}</p>
 
 							{grouped.sites && grouped.sites.length > 0 && (
 								<>

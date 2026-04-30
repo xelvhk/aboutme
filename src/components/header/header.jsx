@@ -6,8 +6,9 @@ import { useTranslation } from "../../data/translations";
 const Header = () => {
     const { t, language } = useTranslation();
     const cvLink = language === 'ru'
-        ? 'https://drive.google.com/file/d/11N1tYl0YUpNYo9m7xcRGUAVTqmmCv4At/view?usp=sharing'
-        : 'https://drive.google.com/file/d/1RK_EtUna60rkWKykeUFqukpZ3BGp--F9/view?usp=sharing';
+        ? '/cv/alexey_khvedchenya_cv_ru.pdf'
+        : '/cv/alexey_khvedchenya_cv_en.pdf';
+    const cvFileName = language === 'ru' ? 'alexey_khvedchenya_cv_ru.pdf' : 'alexey_khvedchenya_cv_en.pdf';
     return (
 		<header className="header">
 			<div className="header-wrapper">
@@ -18,7 +19,7 @@ const Header = () => {
 						</strong>
 						<Text /><strong>{t('header.role')}</strong>
 					</h1>
-					<a href={cvLink} className="btn">
+					<a href={cvLink} className="btn" download={cvFileName}>
 						{t('header.downloadCv')}
 					</a>
 				</div>

@@ -14,7 +14,7 @@ const projects = [
 		skills: 'Angular, HTML, CSS',
 		img: project01,
 		imgBig: project01Big,
-		gitHubLink: 'https://github.com/lexkh/burgers',
+		gitHubLink: 'https://github.com/xelvhk/js-marvel',
 		type: 'site',
 	},
 	{

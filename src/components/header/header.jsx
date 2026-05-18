@@ -5,9 +5,10 @@ import { useTranslation } from "../../data/translations";
 
 const Header = () => {
     const { t, language } = useTranslation();
+    const cvBasePath = process.env.PUBLIC_URL || "";
     const cvLink = language === 'ru'
-        ? '/cv/alexey_khvedchenya_cv_ru.pdf'
-        : '/cv/alexey_khvedchenya_cv_en.pdf';
+        ? `${cvBasePath}/cv/alexey_khvedchenya_cv_ru.pdf`
+        : `${cvBasePath}/cv/alexey_khvedchenya_cv_en.pdf`;
     const cvFileName = language === 'ru' ? 'alexey_khvedchenya_cv_ru.pdf' : 'alexey_khvedchenya_cv_en.pdf';
     return (
 		<header className="header">

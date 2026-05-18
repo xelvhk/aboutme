@@ -8,6 +8,7 @@ import Home from "./pages/home";
 import Projects from "./pages/projects";
 import Project from "./pages/project";
 import Blog from "./components/blog/blog";
+import AiStudio from "./pages/aiStudio";
 import AdminPanel from "./components/admin/AdminPanel";
 import { LanguageProvider } from "./data/translations";
 
@@ -43,6 +44,7 @@ function App() {
 							<Routes>
 								<Route path="/" element={<Home />} />
 								<Route path="/projects" element={<Projects />} />
+								<Route path="/ai-studio" element={<AiStudio />} />
 								<Route path="/project/:id" element={<Project />} />
 								<Route path="/blog" element={<Blog />} />
 								<Route path="/admin" element={<AdminPanel />} />

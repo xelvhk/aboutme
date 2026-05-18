@@ -14,6 +14,7 @@ export const translations = {
     nav: {
       home: 'Home',
       projects: 'Projects',
+      aiStudio: 'AI Studio',
       blog: 'Blog',
       admin: 'Admin'
     },
@@ -78,6 +79,14 @@ export const translations = {
       byAuthor: 'By',
       checkBackSoon: 'Check back soon for new content!'
     },
+
+    aiStudio: {
+      title: 'AI Studio',
+      subtitle: 'AI videos and creative experiments',
+      inProgress: 'Section in progress',
+      socialBlockTitle: 'Social platforms',
+      buttonSoon: 'Soon'
+    },
     
     // Contacts
     contacts: {
@@ -131,6 +140,7 @@ export const translations = {
     nav: {
       home: 'Главная',
       projects: 'Проекты',
+      aiStudio: 'AI Studio',
       blog: 'Блог',
       admin: 'Админ'
     },
@@ -194,6 +204,14 @@ export const translations = {
       publishedOn: 'Опубликовано',
       byAuthor: 'Автор',
       checkBackSoon: 'Скоро здесь появятся новые материалы!'
+    },
+
+    aiStudio: {
+      title: 'AI Studio',
+      subtitle: 'ИИ-видео и креативные эксперименты',
+      inProgress: 'Раздел в разработке',
+      socialBlockTitle: 'Социальные платформы',
+      buttonSoon: 'Скоро'
     },
     
     // Contacts

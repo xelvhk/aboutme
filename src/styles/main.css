@@ -136,6 +136,70 @@ body {
     font-weight: 700;
     line-height: 1.3;
 }
+
+.ai-studio-coming-soon {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.ai-studio-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    border: 1px dashed rgba(255, 255, 255, 0.45);
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.14), transparent 50%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.1));
+    color: rgba(255, 255, 255, 0.96);
+    font-size: 0.95rem;
+    letter-spacing: 0.4px;
+}
+
+.ai-studio-socials {
+    margin-top: 3rem;
+}
+
+.ai-studio-socials .title-2 {
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+}
+
+.ai-studio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.ai-studio-card {
+    border-radius: 14px;
+    padding: 1.25rem;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.14), transparent 52%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.12));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 130px;
+}
+
+.ai-studio-card-title {
+    color: var(--white);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.ai-studio-btn[disabled] {
+    cursor: not-allowed;
+    opacity: 0.85;
+}
 /* Scroll*/
 
 .scroll-indicator {
@@ -401,4 +465,3 @@ body {
         width: 28px;
     }
 }
-

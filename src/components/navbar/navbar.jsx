@@ -42,6 +42,16 @@ const Navbar = () => {
 						</li>
 						<li className="nav-list__item">
 							<NavLink
+								to="/ai-studio"
+								className={({ isActive }) =>
+									isActive ? activeLink : normalLink
+								}
+							>
+								{t('nav.aiStudio')}
+							</NavLink>
+						</li>
+						<li className="nav-list__item">
+							<NavLink
 								to="/blog"
 								className={({ isActive }) =>
 									isActive ? activeLink : normalLink

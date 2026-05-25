@@ -1,0 +1,376 @@
+.macos-mode,
+.macos-mode #root,
+.macos-mode .App,
+.macos-mode #scroll {
+  min-height: 100vh;
+  height: 100%;
+}
+
+.macos-mode {
+  overflow: hidden;
+}
+
+body.macos-body {
+  min-height: 100vh !important;
+  height: 100%;
+  overflow: hidden;
+  background: #020917;
+}
+
+.mac-shell {
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-image:
+    linear-gradient(180deg, rgba(7, 18, 40, 0.12), rgba(7, 18, 40, 0.28)),
+    url("../img/macos-wallpaper.svg");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+.mac-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: 34px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 14px;
+  background: rgba(245, 245, 245, 0.22);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 0.85rem;
+}
+
+.mac-topbar-left {
+  justify-self: start;
+  font-weight: 600;
+}
+
+.mac-topbar-center {
+  justify-self: center;
+  font-weight: 500;
+}
+
+.mac-topbar-right {
+  justify-self: end;
+  opacity: 0.9;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.mac-lang-btn {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  padding: 0.15rem 0.4rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.mac-lang-btn.is-active {
+  background: rgba(255, 255, 255, 0.32);
+  color: #0f2241;
+}
+
+.mac-desktop {
+  min-height: 0;
+  flex: 1;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+.mac-desktop-layout {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr minmax(290px, 380px);
+  gap: 1.25rem;
+  align-items: start;
+  overflow: hidden;
+  position: relative;
+  z-index: 4;
+}
+
+.mac-desktop-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(92px, 92px));
+  gap: 1rem;
+  align-content: start;
+  overflow-y: auto;
+  max-height: 100%;
+  padding: 0.6rem 0.3rem 0 0;
+}
+
+.mac-app-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(12px) scale(0.96);
+  animation: mac-launchpad-in 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: calc(var(--app-index, 0) * 65ms + 120ms);
+}
+
+.mac-app-emoji {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+}
+
+.mac-app-icon:hover .mac-app-emoji {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.32);
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.mac-app-label {
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.mac-dock {
+  align-self: center;
+  display: flex;
+  gap: 0.7rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 18px;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(12px);
+  position: relative;
+  z-index: 5;
+}
+
+.mac-dock-item {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  transition: transform 0.22s ease, background 0.22s ease;
+  opacity: 0;
+  animation: mac-dock-in 0.35s ease forwards;
+  animation-delay: calc(var(--dock-index, 0) * 55ms + 320ms);
+}
+
+.mac-dock-emoji {
+  font-size: 1.6rem;
+}
+
+.mac-dock-item:hover {
+  transform: translateY(-6px) scale(1.16);
+  background: rgba(255, 255, 255, 0.32);
+}
+
+.mac-window-stage {
+  min-height: 0;
+  flex: 1;
+  padding: 1.25rem;
+  overflow: hidden;
+}
+
+.mac-window {
+  height: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(243, 248, 255, 0.88);
+  color: #10233e;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.32);
+}
+
+.mac-window-enter {
+  animation: mac-window-open 0.34s cubic-bezier(0.2, 0.85, 0.2, 1) forwards;
+  transform-origin: center 30%;
+}
+
+.mac-window-header {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  background: linear-gradient(180deg, #eff3f8 0%, #dde4ec 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.mac-traffic-lights {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.mac-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 0;
+}
+
+.mac-dot-red { background: #ff5f57; cursor: pointer; }
+.mac-dot-yellow { background: #febc2e; }
+.mac-dot-green { background: #28c840; }
+
+.mac-window-title {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #3c4d61;
+}
+
+.mac-window-content {
+  height: calc(100% - 40px);
+  overflow: auto;
+}
+
+.mac-widgets {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.mac-widget {
+  border-radius: 14px;
+  padding: 0.95rem 1rem;
+  background: rgba(9, 17, 31, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(9px);
+  position: relative;
+  z-index: 6;
+}
+
+.mac-widget-title {
+  font-size: 0.92rem;
+  margin-bottom: 0.55rem;
+}
+
+.mac-widget-text {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  opacity: 0.95;
+}
+
+.mac-widget-list {
+  display: grid;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+}
+
+.mac-widget-list li {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.mac-widget-list span {
+  opacity: 0.78;
+}
+
+.mac-widget-tags {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  opacity: 0.95;
+}
+
+.mac-boot-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 35% 20%, rgba(66, 156, 255, 0.2), transparent 50%),
+    linear-gradient(180deg, #070f1f 0%, #040913 100%);
+  animation: mac-boot-fade 1.6s ease forwards;
+  pointer-events: none;
+}
+
+.mac-boot-loader {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.18);
+  border-top-color: rgba(240, 249, 255, 0.95);
+  border-right-color: rgba(189, 231, 255, 0.85);
+  box-shadow: 0 0 22px rgba(143, 218, 255, 0.22);
+  animation: mac-spinner 0.95s linear infinite;
+}
+
+@keyframes mac-window-open {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+    filter: blur(1px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes mac-launchpad-in {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes mac-dock-in {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes mac-spinner {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes mac-boot-fade {
+  0%, 80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media (max-width: 900px) {
+  .mac-desktop-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .mac-widgets {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/aboutme/static/css/main.9ed1474f.css",
-    "main.js": "/aboutme/static/js/main.4f5a2a2c.js",
+    "main.css": "/aboutme/static/css/main.82b4c423.css",
+    "main.js": "/aboutme/static/js/main.faa52f85.js",
     "static/media/header.png": "/aboutme/static/media/header.75e745b143e0f552d278.png",
     "static/media/01-big.jpg": "/aboutme/static/media/01-big.0d2b9dae580a6c5ebbad.jpg",
     "static/media/03-big.jpg": "/aboutme/static/media/03-big.e48daff4f663a396d6bb.jpg",
@@ -24,6 +24,7 @@
     "static/media/python.svg": "/aboutme/static/media/python.a984847ae140b1f2b47bf3ce78119c84.svg",
     "static/media/php.svg": "/aboutme/static/media/php.8132ef917cba8599d1667919b7efd47f.svg",
     "static/media/figma.svg": "/aboutme/static/media/figma.37ff9a92c33f5fee6e7408249766a55e.svg",
+    "static/media/macos-wallpaper.svg": "/aboutme/static/media/macos-wallpaper.d888c2a33cd38186b148.svg",
     "static/media/joomla.svg": "/aboutme/static/media/joomla.47b7b070c6e3140879eca1744806b5f6.svg",
     "static/media/git.svg": "/aboutme/static/media/git.813c8455b3df3aa3c9caa4689091e9ef.svg",
     "static/media/javascript.svg": "/aboutme/static/media/javascript.2ce0a493399365931970308eb9ede00f.svg",
@@ -35,11 +36,11 @@
     "index.html": "/aboutme/index.html",
     "static/media/html.svg": "/aboutme/static/media/html.0ef2f2c83da8eab70df62409768b522b.svg",
     "static/media/css.svg": "/aboutme/static/media/css.6891bb99fed6d331dabe2262462065a5.svg",
-    "main.9ed1474f.css.map": "/aboutme/static/css/main.9ed1474f.css.map",
-    "main.4f5a2a2c.js.map": "/aboutme/static/js/main.4f5a2a2c.js.map"
+    "main.82b4c423.css.map": "/aboutme/static/css/main.82b4c423.css.map",
+    "main.faa52f85.js.map": "/aboutme/static/js/main.faa52f85.js.map"
   },
   "entrypoints": [
-    "static/css/main.9ed1474f.css",
-    "static/js/main.4f5a2a2c.js"
+    "static/css/main.82b4c423.css",
+    "static/js/main.faa52f85.js"
   ]
 }

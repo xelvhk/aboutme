@@ -17,18 +17,18 @@ const Footer = () => {
 
 						<li className="social-item">
 							<a href="https://t.me/hex_lex" target="_blank" rel="noreferrer">
-								<img src={telegram} alt="Telegram" />
+								<img src={telegram} alt="Telegram" loading="lazy" decoding="async" />
 							</a>
 						</li>
 
 						<li className="social-item">
 							<a href="https://github.com/xelvhk" target="_blank" rel="noreferrer">
-								<img src={gitHub} alt="GitHub" />
+								<img src={gitHub} alt="GitHub" loading="lazy" decoding="async" />
 							</a>
 						</li>
 						<li className="social-item">
 							<a href="#!" target="_blank" rel="noreferrer">
-								<img src={linkedIn} alt="LinkedIn" />
+								<img src={linkedIn} alt="LinkedIn" loading="lazy" decoding="async" />
 							</a>
 						</li>
 					</ul>

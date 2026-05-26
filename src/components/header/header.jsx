@@ -1,5 +1,5 @@
 import "../../styles/style.css";
-import headerImg from "../../img/header.png";
+import headerImg from "../../img/header-optimized.jpg";
 import Text from "../Text";
 import { useTranslation } from "../../data/translations";
 
@@ -24,7 +24,15 @@ const Header = () => {
 						{t('header.downloadCv')}
 					</a>
 				</div>
-				<img src={headerImg} alt="Profile" className="header-image" />
+				<img
+					src={headerImg}
+					alt="Profile"
+					className="header-image"
+					loading="eager"
+					fetchPriority="high"
+					decoding="async"
+					width="300"
+				/>
 			</div>
 		</header>
 	);

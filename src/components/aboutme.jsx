@@ -36,7 +36,7 @@ function Aboutme() {
                                             const skillImg = skillsImage(skill);
                                             return skillImg ? (
                                                 <div className="skill-box" key={`${skill}-${id}`} >
-                                                    <img className='skill-image' src={skillImg} alt={skill} />
+                                                    <img className='skill-image' src={skillImg} alt={skill} loading="lazy" decoding="async" />
                                                     <p>{skill}</p>
                                                 </div>
                                             ) : null;

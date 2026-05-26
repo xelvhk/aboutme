@@ -5,6 +5,7 @@
   "homepage": "https://xelvhk.github.io/aboutme",
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "dompurify": "^3.4.5",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.4",
     "react-dom": "^18.2.0",
@@ -14,10 +15,12 @@
     "typewriter-effect": "^2.22.0"
   },
   "scripts": {
+    "sync:obsidian-posts": "node scripts/sync-obsidian-posts.js",
+    "prebuild": "npm run sync:obsidian-posts",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build --dotfiles",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-05-27T07:27:57.921Z",
+  "sourceDir": "/Users/oksana/Documents/Obsidian Vault/03_Knowledge/Posts",
+  "count": 1,
+  "reason": "",
+  "posts": [
+    {
+      "id": "obs-1-2026-05-26",
+      "slug": "1-2026-05-26",
+      "source": "obsidian",
+      "sourceFile": "ru/1 - 2026-05-26.md",
+      "title": "First post",
+      "title_en": "First post",
+      "title_ru": "Первый пост",
+      "excerpt": "First post. And hopefully not the last one — because a blog without posts feels like a startup without an MVP: the idea exists, but there’s nothing to actually touch yet. For some...",
+      "excerpt_en": "First post. And hopefully not the last one — because a blog without posts feels like a startup without an MVP: the idea exists, but there’s nothing to actually touch yet. For some...",
+      "excerpt_ru": "Первый пост. И, надеюсь, не последний — а то блог без постов звучит как стартап без MVP: идея есть, а потрогать нечего. Раньше както не складывалось вести всё это регулярно. То вре...",
+      "content": "First post. And hopefully not the last one — because a blog without posts feels like a startup without an MVP: the idea exists, but there’s nothing to actually touch yet.\n\nFor some reason, I could never keep this kind of thing going consistently. Sometimes there was no time, sometimes thoughts were moving faster than they could turn into text. But this time I decided to finally start. No “new post every day at 7:00 AM” promises though. That’s definitely not happening — nobody’s going to sit here writing and uploading posts every single day, not even AI. Although… automating that would actually be pretty funny.\n\nSo yeah, this place will probably slowly fill up with random notes, thoughts, projects, weird ideas, and maybe something else along the way.\n\n“Hello, world!” feels way too dramatic and suspiciously similar to the first programming tutorial ever made. So let’s keep it simpler.\n\nHello, blog 👋",
+      "content_en": "First post. And hopefully not the last one — because a blog without posts feels like a startup without an MVP: the idea exists, but there’s nothing to actually touch yet.\n\nFor some reason, I could never keep this kind of thing going consistently. Sometimes there was no time, sometimes thoughts were moving faster than they could turn into text. But this time I decided to finally start. No “new post every day at 7:00 AM” promises though. That’s definitely not happening — nobody’s going to sit here writing and uploading posts every single day, not even AI. Although… automating that would actually be pretty funny.\n\nSo yeah, this place will probably slowly fill up with random notes, thoughts, projects, weird ideas, and maybe something else along the way.\n\n“Hello, world!” feels way too dramatic and suspiciously similar to the first programming tutorial ever made. So let’s keep it simpler.\n\nHello, blog 👋",
+      "content_ru": "Первый пост. И, надеюсь, не последний — а то блог без постов звучит как стартап без MVP: идея есть, а потрогать нечего.\n\nРаньше как-то не складывалось вести всё это регулярно. То времени не было, то мысли улетали быстрее, чем успевали превращаться в текст. Но теперь решил всё-таки начать. Без обещаний «новый пост каждый день в 7:00», конечно. Не будет так, потому что никто их сюда не будет писать и загружать каждый день, даже ИИ. Хотя, было бы весело автоматизировать это дело.  Пусть здесь просто будут время от времени появляться заметки, мысли, проекты, странные идеи и, возможно, что-то ещё.\n\n«Привет, мир!» — слишком пафосно и подозрительно напоминает первый урок по программированию. Поэтому пусть будет проще.\n\nПривет, блог 👋",
+      "author": "xelvhk",
+      "publishedAt": "2026-05-26",
+      "tags": [
+        "blog",
+        "devlog",
+        "portfolio"
+      ],
+      "featured": false,
+      "image": "",
+      "has_ru": true,
+      "has_en": true
+    }
+  ]
+}

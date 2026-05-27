@@ -6,8 +6,8 @@ export const translations = {
   en: {
     // Header
     header: {
-      greeting: "Hello, I'm Alex",
-      role: 'developer',
+      greeting: "Hello, I'm Lex",
+      role: 'React | Python | AI Engineer',
       downloadCv: 'Download CV'
     },
     // Navigation
@@ -29,7 +29,7 @@ export const translations = {
     // About Me page
     about: {
       title: 'About me',
-      description: 'I’m a frontend developer and Python enthusiast with experience in React, JavaScript, and modern tooling. I build responsive interfaces, integrate APIs, and automate workflows with Aiogram bots. A background in information security and teaching helps me deliver reliable, clear, maintainable solutions.',
+      description: 'I am a React, Python, and AI engineer from Saint Petersburg. I build local-first assistants, automate workflows, and develop Telegram bots with Aiogram. My focus is practical products: clean UX, stable backend logic, and fast delivery.',
       skills: 'Skills',
       experience: 'Experience',
       experienceItems: [
@@ -39,7 +39,7 @@ export const translations = {
         { date: '2019-09 — 2023-07', title: 'Computer science teacher', place: 'GBOU SOSH 20 SPB' },
       ],
       education: 'Education',
-      currentWork: "I'm currently working with React, but studying blockchain and machine learning.",
+      currentWork: "Now focusing on local AI assistants, automation workflows, FastAPI services, and React interfaces.",
       skillsList: [
         'HTML5',
         'CSS3',
@@ -61,6 +61,16 @@ export const translations = {
       githubLink: 'GitHub link',
       filterLabel: 'Filter by topic',
       filterAll: 'All',
+      pinnedTitle: 'Pinned projects',
+      categoryLabel: 'Quick categories',
+      categoryAi: 'AI',
+      categoryBackend: 'Backend',
+      categoryFrontend: 'Frontend',
+      categoryAutomation: 'Automation',
+      categoryTelegram: 'Telegram',
+      caseProblem: 'Problem',
+      caseSolution: 'Solution',
+      caseResult: 'Result',
       sites: 'Sites',
       design: 'Design',
       loading: 'Loading projects...',
@@ -132,8 +142,8 @@ export const translations = {
   ru: {
     // Header
     header: {
-      greeting: 'Привет, я Алексей',
-      role: 'разработчик',
+      greeting: 'Привет, я Lex',
+      role: 'React | Python | AI Engineer',
       downloadCv: 'Скачать резюме'
     },
     // Navigation
@@ -155,7 +165,7 @@ export const translations = {
     // About Me page
     about: {
       title: 'Обо мне',
-      description: 'Я frontend‑разработчик и Python‑энтузиаст с опытом в React и JavaScript. Создаю адаптивные интерфейсы, интегрирую API и автоматизирую процессы с помощью ботов на Aiogram. Опыт в ИБ и преподавании помогает проектировать надёжные, понятные и поддерживаемые решения.',
+      description: 'Я React/Python/AI разработчик из Санкт‑Петербурга. Создаю local-first ассистентов, автоматизирую процессы и делаю Telegram-ботов на Aiogram. Фокус на практичных продуктах: понятный UX, стабильная backend-логика и быстрый результат.',
       skills: 'Навыки',
       experience: 'Опыт работы',
       experienceItems: [
@@ -165,7 +175,7 @@ export const translations = {
         { date: '09.2019 — 07.2023', title: 'Учитель информатики', place: 'ГБОУ СОШ №20 Санкт‑Петербург' },
       ],
       education: 'Образование',
-      currentWork: 'В настоящее время работаю с React, но изучаю блокчейн и машинное обучение.',
+      currentWork: 'Сейчас фокус: local AI ассистенты, автоматизация рабочих процессов, сервисы на FastAPI и интерфейсы на React.',
       skillsList: [
         'HTML5',
         'CSS3',
@@ -187,6 +197,16 @@ export const translations = {
       githubLink: 'Ссылка на GitHub',
       filterLabel: 'Фильтр по тегам',
       filterAll: 'Все',
+      pinnedTitle: 'Закрепленные проекты',
+      categoryLabel: 'Быстрые категории',
+      categoryAi: 'AI',
+      categoryBackend: 'Backend',
+      categoryFrontend: 'Frontend',
+      categoryAutomation: 'Automation',
+      categoryTelegram: 'Telegram',
+      caseProblem: 'Проблема',
+      caseSolution: 'Решение',
+      caseResult: 'Результат',
       sites: 'Сайты',
       design: 'Дизайн',
       loading: 'Загрузка проектов...',

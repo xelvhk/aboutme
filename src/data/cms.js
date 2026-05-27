@@ -2,27 +2,9 @@
 // Currently proxies to local static lists and can be replaced by real backend later
 
 import { projects as staticProjects } from "../helpers/projectsList";
-import postImage from "../img/post.jpg";
+import generatedBlog from "./blog.generated.json";
 
-const sampleBlogPosts = [
-    {
-        id: 'hello-world',
-        title: 'Hello, world!',
-        title_en: 'Hello, world!',
-        title_ru: 'Привет, мир!',
-        excerpt: 'My first post on blog.',
-        excerpt_en: 'My first blog post.',
-        excerpt_ru: 'Мой первый пост в блоге.',
-        content: `# Rebuilding my portfolio\n\nI recently rebuilt my portfolio using React and a few handy libraries...\n\n## Highlights\n- React 18\n- React Bootstrap\n- Custom i18n\n\n\`Code\` samples and more coming soon.`,
-        content_en: `# Rebuilding my portfolio\n\nI recently rebuilt my portfolio using React and a few handy libraries...\n\n## Highlights\n- React 18\n- React Bootstrap\n- Custom i18n\n\n\`Code\` samples and more coming soon.`,
-        content_ru: `# Обновление портфолио\n\nНедавно я пересобрала портфолио на React и нескольких удобных библиотеках.\n\n## Что улучшила\n- React 18\n- React Bootstrap\n- Кастомный i18n\n\nСкоро добавлю больше примеров кода и кейсов.`,
-        author: 'Alex',
-        publishedAt: '2024-06-01',
-        tags: ['react', 'portfolio', 'i18n'],
-        featured: true,
-        image: postImage,
-    },
-];
+const sampleBlogPosts = [];
 
 // Storage helpers
 const STORAGE_KEYS = {
@@ -40,6 +22,13 @@ const PROJECT_DESCRIPTION_RU = {
     'login-form-with-animation': 'Анимированная форма авторизации с упором на UI/UX и микроанимации.',
     'http-queries': 'Учебный проект по HTTP-протоколу и сетевым запросам.',
 };
+const PINNED_REPOS = new Set([
+    "vasya_ai",
+    "attendance_bot",
+    "js_marvel",
+    "aboutme",
+    "python-tasks-taskbot",
+]);
 
 function readFromStorage(key, fallback) {
     try {
@@ -80,6 +69,21 @@ function getRussianDescription(repo) {
     return parts.join(' ');
 }
 
+function buildProjectCase(repo) {
+    const repoName = repo?.name || "project";
+    const language = repo?.language || "stack";
+    const description = repo?.description || "Repository implementation details";
+
+    return {
+        problem_en: `Need to implement "${repoName}" with clear structure and practical delivery value.`,
+        solution_en: `Implemented using ${language} with repository-first workflow, modular code updates, and iterative improvements.`,
+        result_en: `Published and documented project with working codebase: ${description}.`,
+        problem_ru: `Нужно реализовать "${repoName}" с понятной структурой и практической ценностью результата.`,
+        solution_ru: `Реализация выполнена на ${language} с репозиторий-ориентированным подходом, модульными изменениями и итеративными улучшениями.`,
+        result_ru: `Получен опубликованный и документированный проект с рабочей кодовой базой: ${description}.`,
+    };
+}
+
 function formatGithubRepo(repo) {
     const skills = [];
     const topics = Array.isArray(repo.topics)
@@ -94,6 +98,8 @@ function formatGithubRepo(repo) {
         topics.slice(0, 3).forEach((topic) => skills.push(topic));
     }
 
+    const projectCase = buildProjectCase(repo);
+
     return {
         id: `gh-${repo.id}`,
         title: repo.name || '',
@@ -106,6 +112,8 @@ function formatGithubRepo(repo) {
         topics,
         gitHubLink: repo.html_url || '',
         liveLink: repo.homepage || '',
+        pinned: PINNED_REPOS.has(String(repo.name || "").toLowerCase()),
+        ...projectCase,
         type: 'site',
     };
 }
@@ -218,7 +226,25 @@ export const cms = {
 
     // Blog posts
     getBlogPosts() {
-        return readFromStorage(STORAGE_KEYS.posts, []);
+        const storedPosts = readFromStorage(STORAGE_KEYS.posts, []);
+        const manualPosts = storedPosts.filter((post) => {
+            const id = String(post.id || "");
+            const title = String(post.title || post.title_en || post.title_ru || "").toLowerCase();
+            if (id.startsWith("obs-")) return false;
+            if (id === "hello-world") return false;
+            if (title === "hello, world!" || title === "привет, мир!") return false;
+            return true;
+        });
+        const generatedPosts = Array.isArray(generatedBlog?.posts) ? generatedBlog.posts : [];
+        const fallbackPosts = generatedPosts.length > 0 ? [] : sampleBlogPosts;
+
+        const mergedPosts = [...generatedPosts, ...manualPosts, ...fallbackPosts]
+            .sort((a, b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0));
+
+        return mergedPosts.map((post) => ({
+            ...post,
+            author: 'xelvhk',
+        }));
     },
     addBlogPost(post) {
         const posts = readFromStorage(STORAGE_KEYS.posts, []);
@@ -226,6 +252,7 @@ export const cms = {
             ...post,
             id: post.id || `post-${Date.now()}`,
             publishedAt: post.publishedAt || new Date().toISOString().slice(0, 10),
+            author: post.author || 'xelvhk',
             tags: Array.isArray(post.tags) ? post.tags : [],
         };
         posts.unshift(newPost);

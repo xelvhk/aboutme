@@ -1,14 +1,15 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect, useCallback } from 'react';
 import { Container, Row, Col, Card, Badge } from 'react-bootstrap';
 import { cms } from '../data/cms';
 import { useTranslation } from '../data/translations';
-import '../components/blog/blog.css';
+import '../styles/projects.css';
 
 const Projects = () => {
 	const { t, language } = useTranslation();
 	const [projects, setProjects] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [activeTopic, setActiveTopic] = useState('all');
+	const [activeCategory, setActiveCategory] = useState('all');
 
 	useEffect(() => {
 		const loadProjects = async () => {
@@ -56,14 +57,53 @@ const Projects = () => {
 		return Array.from(topics).sort((a, b) => a.localeCompare(b));
 	}, [grouped.sites]);
 
+	const categoryOptions = [
+		{ key: 'all', label: t('projects.filterAll') },
+		{ key: 'ai', label: t('projects.categoryAi') },
+		{ key: 'backend', label: t('projects.categoryBackend') },
+		{ key: 'frontend', label: t('projects.categoryFrontend') },
+		{ key: 'automation', label: t('projects.categoryAutomation') },
+		{ key: 'telegram', label: t('projects.categoryTelegram') },
+	];
+
+	const matchesCategory = useCallback((project, category) => {
+		if (category === 'all') return true;
+		const topics = getProjectTopics(project);
+		const haystack = [
+			...topics,
+			String(project?.title || '').toLowerCase(),
+			String(project?.description || '').toLowerCase(),
+			String(project?.description_en || '').toLowerCase(),
+			String(project?.description_ru || '').toLowerCase(),
+			String(project?.skills || '').toLowerCase(),
+		].join(' ');
+
+		const checks = {
+			ai: ['ai', 'llm', 'assistant', 'ml', 'machine learning'],
+			backend: ['backend', 'fastapi', 'api', 'python', 'server'],
+			frontend: ['frontend', 'react', 'javascript', 'html', 'css', 'ui'],
+			automation: ['automation', 'workflow', 'bot', 'agent'],
+			telegram: ['telegram', 'aiogram', 'tg'],
+		};
+
+		return (checks[category] || []).some((token) => haystack.includes(token));
+	}, []);
+
 	const filteredSites = useMemo(() => {
-		if (activeTopic === 'all') {
-			return grouped.sites || [];
+		let items = grouped.sites || [];
+		if (activeCategory !== 'all') {
+			items = items.filter((project) => matchesCategory(project, activeCategory));
 		}
-		return (grouped.sites || []).filter((project) =>
+		if (activeTopic === 'all') {
+			return items;
+		}
+		return items.filter((project) =>
 			getProjectTopics(project).includes(activeTopic)
 		);
-	}, [activeTopic, grouped.sites]);
+	}, [activeTopic, activeCategory, grouped.sites, matchesCategory]);
+
+	const pinnedSites = useMemo(() => (grouped.sites || []).filter((p) => Boolean(p.pinned)), [grouped.sites]);
+	const regularSites = useMemo(() => filteredSites.filter((p) => !p.pinned), [filteredSites]);
 
 	const getLocalized = (item, field) => {
 		if (language === 'ru') {
@@ -73,14 +113,20 @@ const Projects = () => {
 	};
 
 	const noPreviewLabel = language === 'ru' ? 'Превью скоро' : 'Preview soon';
+	const getCase = (item, key) => {
+		if (language === 'ru') {
+			return item[`${key}_ru`] || item[`${key}_en`] || '';
+		}
+		return item[`${key}_en`] || item[`${key}_ru`] || '';
+	};
 
 	const renderSkeletonCards = () => (
 		<Row className="blog-grid align-items-stretch">
 			{Array.from({ length: 6 }).map((_, idx) => (
 				<Col xs={12} md={6} lg={4} key={`skeleton-${idx}`}>
-					<Card className="project-card blog-card h-100 project-skeleton-card">
+					<Card className="project-card projects-card h-100 project-skeleton-card">
 						<div className="project-card-preview project-skeleton-preview" />
-						<Card.Body className="blog-card-content">
+						<Card.Body className="projects-card-content">
 							<div className="project-skeleton-line project-skeleton-line-lg" />
 							<div className="project-skeleton-line project-skeleton-line-md" />
 							<div className="project-skeleton-tags">
@@ -104,7 +150,7 @@ const Projects = () => {
 						<Row className='text-background'>
 							<Col md={12}>
 								<h3 className='about-me-text'>{t('projects.title')}</h3>
-								<p className="blog-subtitle">{t('projects.loading')}</p>
+									<p className="projects-subtitle">{t('projects.loading')}</p>
 								{renderSkeletonCards()}
 							</Col>
 						</Row>
@@ -121,10 +167,57 @@ const Projects = () => {
 					<Row className='text-background'>
 						<Col md={12}>
 							<h3 className='about-me-text'>{t('projects.title')}</h3>
-							<p className="blog-subtitle">{t('projects.subtitle')}</p>
+							<p className="projects-subtitle">{t('projects.subtitle')}</p>
 
 							{grouped.sites && grouped.sites.length > 0 && (
 								<>
+									{pinnedSites.length > 0 && (
+										<>
+											<h4 className="projects-section-title">{t('projects.pinnedTitle')}</h4>
+											<Row className="blog-grid align-items-stretch">
+												{pinnedSites.slice(0, 6).map((p, idx) => (
+													<Col xs={12} md={6} lg={4} key={`pinned-${idx}`}>
+														<Card className="project-card projects-card h-100 is-pinned">
+															<div className="project-card-preview">
+																{p.img ? (
+																	<img src={p.img} alt={getLocalized(p, 'title')} className="project-card-preview-image" loading="lazy" decoding="async" />
+																) : (
+																	<div className="project-card-preview-placeholder">
+																		<span>{noPreviewLabel}</span>
+																	</div>
+																)}
+															</div>
+															<Card.Body className="projects-card-content">
+																{getLocalized(p, 'description') && (
+																	<Card.Text className="projects-card-excerpt">{getLocalized(p, 'description')}</Card.Text>
+																)}
+																<div className="projects-card-tags mt-2">
+																	<Badge bg="light" text="dark" className="me-1">Pinned</Badge>
+																</div>
+															</Card.Body>
+														</Card>
+													</Col>
+												))}
+											</Row>
+										</>
+									)}
+
+									<div className="projects-filter-block">
+										<span className="projects-filter-label">{t('projects.categoryLabel')}</span>
+										<div className="projects-filter-chips">
+											{categoryOptions.map((cat) => (
+												<button
+													type="button"
+													key={cat.key}
+													className={`projects-filter-chip ${activeCategory === cat.key ? 'is-active' : ''}`}
+													onClick={() => setActiveCategory(cat.key)}
+												>
+													{cat.label}
+												</button>
+											))}
+										</div>
+									</div>
+
 									<div className="projects-filter-block">
 										<span className="projects-filter-label">{t('projects.filterLabel')}</span>
 										<div className="projects-filter-chips">
@@ -149,29 +242,42 @@ const Projects = () => {
 									</div>
 
 									<Row className="blog-grid align-items-stretch">
-										{filteredSites.map((p, idx) => (
+										{regularSites.map((p, idx) => (
 											<Col xs={12} md={6} lg={4} key={`site-${idx}`}>
-												<Card className="project-card blog-card h-100">
+													<Card className="project-card projects-card h-100">
 													<div className="project-card-preview">
 														{p.img ? (
-															<img src={p.img} alt={getLocalized(p, 'title')} className="project-card-preview-image" />
+																<img src={p.img} alt={getLocalized(p, 'title')} className="project-card-preview-image" loading="lazy" decoding="async" />
 														) : (
 															<div className="project-card-preview-placeholder">
 																<span>{noPreviewLabel}</span>
 															</div>
 														)}
 													</div>
-													<Card.Body className="blog-card-content">
-														{getLocalized(p, 'description') && (
-															<Card.Text className="blog-card-excerpt">{getLocalized(p, 'description')}</Card.Text>
-														)}
-														<div className="blog-card-tags mt-2">
+														<Card.Body className="projects-card-content">
+															{getLocalized(p, 'description') && (
+																<Card.Text className="projects-card-excerpt">{getLocalized(p, 'description')}</Card.Text>
+															)}
+															{(getCase(p, 'problem') || getCase(p, 'solution') || getCase(p, 'result')) && (
+																<div className="projects-case">
+																	{getCase(p, 'problem') && (
+																		<p><strong>{t('projects.caseProblem')}:</strong> {getCase(p, 'problem')}</p>
+																	)}
+																	{getCase(p, 'solution') && (
+																		<p><strong>{t('projects.caseSolution')}:</strong> {getCase(p, 'solution')}</p>
+																	)}
+																	{getCase(p, 'result') && (
+																		<p><strong>{t('projects.caseResult')}:</strong> {getCase(p, 'result')}</p>
+																	)}
+																</div>
+															)}
+															<div className="projects-card-tags mt-2">
 															{p.skills && p.skills.split(',').slice(0,3).map((s, i) => (
 																<Badge key={i} bg="light" text="dark" className="me-1">{s.trim()}</Badge>
 															))}
 														</div>
 														{p.gitHubLink && (
-															<a href={p.gitHubLink} target="_blank" rel="noreferrer" className="blog-back-btn" style={{marginTop: '1rem'}}>
+																<a href={p.gitHubLink} target="_blank" rel="noreferrer" className="projects-link-btn" style={{marginTop: '1rem'}}>
 																{t('projects.githubLink')}
 															</a>
 														)}
@@ -232,7 +338,7 @@ const Projects = () => {
 								</div>
 							) : null}
 
-							{projects.length > 0 && filteredSites.length === 0 ? (
+							{projects.length > 0 && regularSites.length === 0 && pinnedSites.length === 0 ? (
 								<div className="text-center">
 									<h4>{t('projects.noProjects')}</h4>
 								</div>

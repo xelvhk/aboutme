@@ -36,7 +36,7 @@ const AdminPanel = () => {
     excerpt_ru: '',
     content_en: '',
     content_ru: '',
-    author: 'Alex Kh',
+    author: 'xelvhk',
     tags: '',
     image: '',
     featured: false
@@ -115,7 +115,7 @@ const AdminPanel = () => {
       excerpt_ru: '',
       content_en: '',
       content_ru: '',
-      author: 'Alex Kh',
+      author: 'xelvhk',
       tags: '',
       image: '',
       featured: false

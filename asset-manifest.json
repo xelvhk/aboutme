@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/aboutme/static/css/main.ce3ae75c.css",
-    "main.js": "/aboutme/static/js/main.cd01ddc1.js",
+    "main.css": "/aboutme/static/css/main.8887541d.css",
+    "main.js": "/aboutme/static/js/main.81c03fa9.js",
     "static/media/01-big.jpg": "/aboutme/static/media/01-big.0d2b9dae580a6c5ebbad.jpg",
     "static/media/03-big.jpg": "/aboutme/static/media/03-big.e48daff4f663a396d6bb.jpg",
     "static/media/02-big.jpg": "/aboutme/static/media/02-big.8a4d70bf6ee8d5960488.jpg",
@@ -11,11 +11,11 @@
     "static/media/gitHub-black.svg": "/aboutme/static/media/gitHub-black.61157a57f0853aa9fd2f3622b730cdfc.svg",
     "static/media/macos-wallpaper.svg": "/aboutme/static/media/macos-wallpaper.d888c2a33cd38186b148.svg",
     "index.html": "/aboutme/index.html",
-    "main.ce3ae75c.css.map": "/aboutme/static/css/main.ce3ae75c.css.map",
-    "main.cd01ddc1.js.map": "/aboutme/static/js/main.cd01ddc1.js.map"
+    "main.8887541d.css.map": "/aboutme/static/css/main.8887541d.css.map",
+    "main.81c03fa9.js.map": "/aboutme/static/js/main.81c03fa9.js.map"
   },
   "entrypoints": [
-    "static/css/main.ce3ae75c.css",
-    "static/js/main.cd01ddc1.js"
+    "static/css/main.8887541d.css",
+    "static/js/main.81c03fa9.js"
   ]
 }

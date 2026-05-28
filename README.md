@@ -1,18 +1,20 @@
 # aboutme
 
-React portfolio with automatic GitHub project sync, bilingual content (RU/EN), and GitHub Pages deployment.
+Developer portfolio with auto-synced GitHub projects, bilingual content (RU/EN), and GitHub Pages delivery.
 
 ## Problem
-A portfolio should stay up to date without manual copy-paste after every repository update. `aboutme` solves this by loading repositories directly from GitHub API and merging them with manually curated content.
+- Portfolio content gets stale when projects are updated manually.
+- Blog posts and project cards often duplicate effort across tools.
+- Mobile and desktop UX need a single consistent visual system.
 
 ## Stack
-- React 18
-- React Router
+- React 18, React Router
 - React Bootstrap
 - LocalStorage-based CMS adapter
+- GitHub API sync + fallback project dataset
 - GitHub Pages (`gh-pages`)
 
-## Quick Start
+## Setup
 ```bash
 git clone https://github.com/xelvhk/aboutme.git
 cd aboutme
@@ -21,54 +23,38 @@ cp .env.example .env
 npm start
 ```
 
-## Environment
-Create `.env` from `.env.example`:
+`.env.example`:
 ```env
 REACT_APP_GITHUB_USER=xelvhk
 ```
 
 ## Architecture
-- `src/pages/`: Home, Projects, Blog, Contact pages
-- `src/components/`: reusable UI blocks
-- `src/data/cms.js`: local CMS + GitHub sync/cache logic
-- `src/data/translations.js`: RU/EN content
-- `src/helpers/projectsList.js`: local fallback projects
+- `src/components/macos/*`: desktop shell, topbar, widgets, window system.
+- `src/pages/projects.jsx`: GitHub-driven project listing, topic/category filters, pinned cards.
+- `src/components/blog/blog.jsx`: markdown post rendering with sanitization.
+- `src/data/cms.js`: data adapters for GitHub + local storage cache.
+- `scripts/sync-obsidian-posts.js`: sync from Obsidian posts into `src/data/blog.generated.json`.
 
-## Demo / Screenshots
+## Demo
 - Production: [https://xelvhk.github.io/aboutme/](https://xelvhk.github.io/aboutme/)
-- Home
+- Home  
 ![Home screenshot](docs/screenshots/home.png)
-- Projects
+- Projects  
 ![Projects screenshot](docs/screenshots/projects.png)
-- Blog
+- Blog  
 ![Blog screenshot](docs/screenshots/blog.png)
 
-## Lighthouse Snapshot
-Measured on April 24, 2026 for: `https://xelvhk.github.io/aboutme/#/`
-
-| Category | Score |
-| --- | --- |
-| Performance | 64 |
-| Accessibility | 92 |
-| Best Practices | 100 |
-| SEO | 100 |
-
-Core metrics:
-- FCP: `2.2 s`
-- LCP: `4.7 s`
-- Speed Index: `4.7 s`
-- TBT: `60 ms`
-- CLS: `0.268`
-
-Raw report: `docs/lighthouse-home.json`
-
 ## Roadmap
-- [x] Add project filtering by tags/topics from GitHub
-- [x] Add skeleton loading states for project cards
-- [x] Add integration tests for CMS adapter behavior
-- [ ] Add lightweight admin flow for blog post media
+- [ ] Add server-backed admin panel for blog media and post metadata.
+- [ ] Add CI job for visual regression snapshots on key pages.
+- [ ] Improve Lighthouse mobile score (image pipeline + route-level code split).
+
+## Status
+Active development
 
 ## CI
-Minimal CI is configured in `.github/workflows/ci.yml`:
 - `npm ci`
 - `npm run build`
+
+## License
+GNU AGPLv3. See [LICENSE](LICENSE).

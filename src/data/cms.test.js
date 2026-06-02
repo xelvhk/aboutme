@@ -84,6 +84,77 @@ describe('cms.getProjects integration', () => {
     expect(savedProjects.map((item) => item.id)).toEqual(['gh-101', 'project-manual-1']);
   });
 
+  test('deduplicates manual projects that point to the same GitHub repository', async () => {
+    localStorage.setItem(
+      STORAGE_KEYS.projects,
+      JSON.stringify([
+        {
+          id: 'project-vasya-legacy',
+          title: 'vasya_ai',
+          gitHubLink: 'https://github.com/xelvhk/vasya_ai',
+          pinned: true,
+          type: 'site',
+        },
+        { id: 'project-manual-2', title: 'Manual item', type: 'site' },
+      ])
+    );
+
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => [
+        {
+          id: 101,
+          name: 'vasya_ai',
+          description: 'Local AI assistant',
+          language: 'Python',
+          topics: ['ai', 'fastapi'],
+          html_url: 'https://github.com/xelvhk/vasya_ai',
+          homepage: '',
+          fork: false,
+          pushed_at: '2026-04-24T08:00:00Z',
+        },
+      ],
+    });
+
+    const { cms } = require('./cms');
+    const result = await cms.getProjects();
+
+    expect(result.map((item) => item.id)).toEqual(['gh-101', 'project-manual-2']);
+    expect(result.filter((item) => item.title === 'vasya_ai')).toHaveLength(1);
+    expect(result[0].img).toBe('/project-previews/vasya_ai.webp');
+  });
+
+  test('deduplicates manual projects by title when GitHub URL is absent', async () => {
+    localStorage.setItem(
+      STORAGE_KEYS.projects,
+      JSON.stringify([
+        { id: 'project-title-duplicate', title: 'vasya_ai', pinned: true, type: 'site' },
+      ])
+    );
+
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => [
+        {
+          id: 101,
+          name: 'vasya_ai',
+          description: 'Local AI assistant',
+          language: 'Python',
+          topics: ['ai', 'fastapi'],
+          html_url: 'https://github.com/xelvhk/vasya_ai',
+          homepage: '',
+          fork: false,
+          pushed_at: '2026-04-24T08:00:00Z',
+        },
+      ],
+    });
+
+    const { cms } = require('./cms');
+    const result = await cms.getProjects();
+
+    expect(result.map((item) => item.id)).toEqual(['gh-101']);
+  });
+
   test('returns local fallback projects when GitHub request fails', async () => {
     localStorage.setItem(
       STORAGE_KEYS.projects,

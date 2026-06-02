@@ -35,6 +35,19 @@ REACT_APP_GITHUB_USER=xelvhk
 - `src/data/cms.js`: data adapters for GitHub + local storage cache.
 - `scripts/sync-obsidian-posts.js`: sync from Obsidian posts into `src/data/blog.generated.json`.
 
+## Project Previews
+GitHub project cards use local preview images when available.
+
+Add a WebP file to `public/project-previews/` using the repository name:
+
+```text
+public/project-previews/vasya_ai.webp
+public/project-previews/tajnyj_ded_bot.webp
+public/project-previews/aboutme.webp
+```
+
+If an image is missing or fails to load, the card falls back to the default preview placeholder.
+
 ## Demo
 - Production: [https://xelvhk.github.io/aboutme/](https://xelvhk.github.io/aboutme/)
 - Home  

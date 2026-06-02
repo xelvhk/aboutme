@@ -30,6 +30,25 @@ const PINNED_REPOS = new Set([
     "python-tasks-taskbot",
 ]);
 
+function normalizeRepoName(value) {
+    return String(value || '').trim().toLowerCase();
+}
+
+function getProjectKey(project) {
+    const githubUrl = String(project?.gitHubLink || project?.html_url || '').trim().toLowerCase();
+    const match = githubUrl.match(/github\.com\/[^/]+\/([^/?#]+)/);
+    if (match?.[1]) {
+        return normalizeRepoName(match[1].replace(/\.git$/, ''));
+    }
+    return normalizeRepoName(project?.title || project?.name);
+}
+
+function getProjectPreviewUrl(repoName) {
+    const key = normalizeRepoName(repoName);
+    if (!key) return '';
+    return `${process.env.PUBLIC_URL || ''}/project-previews/${encodeURIComponent(key)}.webp`;
+}
+
 function readFromStorage(key, fallback) {
     try {
         const raw = localStorage.getItem(key);
@@ -112,6 +131,7 @@ function formatGithubRepo(repo) {
         topics,
         gitHubLink: repo.html_url || '',
         liveLink: repo.homepage || '',
+        img: getProjectPreviewUrl(repo.name),
         pinned: PINNED_REPOS.has(String(repo.name || "").toLowerCase()),
         ...projectCase,
         type: 'site',
@@ -126,7 +146,12 @@ function shouldIncludeGithubRepo(repo) {
 
 function mergeWithManualProjects(githubProjects) {
     const existing = readFromStorage(STORAGE_KEYS.projects, []);
-    const manualProjects = existing.filter((project) => !String(project.id || '').startsWith('gh-'));
+    const githubKeys = new Set(githubProjects.map(getProjectKey).filter(Boolean));
+    const manualProjects = existing.filter((project) => {
+        if (String(project.id || '').startsWith('gh-')) return false;
+        const key = getProjectKey(project);
+        return !key || !githubKeys.has(key);
+    });
     return [...githubProjects, ...manualProjects];
 }
 

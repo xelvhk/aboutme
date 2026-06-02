@@ -35,6 +35,19 @@ REACT_APP_GITHUB_USER=xelvhk
 - `src/data/cms.js`: адаптеры данных для GitHub + кеш LocalStorage.
 - `scripts/sync-obsidian-posts.js`: синхронизация постов из Obsidian в `src/data/blog.generated.json`.
 
+## Превью проектов
+Карточки GitHub-проектов используют локальные изображения, если они есть.
+
+Добавьте WebP-файл в `public/project-previews/` с названием репозитория:
+
+```text
+public/project-previews/vasya_ai.webp
+public/project-previews/tajnyj_ded_bot.webp
+public/project-previews/aboutme.webp
+```
+
+Если изображения нет или оно не загрузилось, карточка покажет стандартную заглушку.
+
 ## Demo
 - Прод: [https://xelvhk.github.io/aboutme/](https://xelvhk.github.io/aboutme/)
 - Home  

@@ -4,6 +4,29 @@ import { cms } from '../data/cms';
 import { useTranslation } from '../data/translations';
 import '../styles/projects.css';
 
+const ProjectPreview = ({ src, alt, placeholder }) => {
+	const [failed, setFailed] = useState(false);
+
+	if (src && !failed) {
+		return (
+			<img
+				src={src}
+				alt={alt}
+				className="project-card-preview-image"
+				loading="lazy"
+				decoding="async"
+				onError={() => setFailed(true)}
+			/>
+		);
+	}
+
+	return (
+		<div className="project-card-preview-placeholder">
+			<span>{placeholder}</span>
+		</div>
+	);
+};
+
 const Projects = () => {
 	const { t, language } = useTranslation();
 	const [projects, setProjects] = useState([]);
@@ -113,6 +136,13 @@ const Projects = () => {
 	};
 
 	const noPreviewLabel = language === 'ru' ? 'Превью скоро' : 'Preview soon';
+	const renderPreview = (project) => (
+		<ProjectPreview
+			src={project.img}
+			alt={getLocalized(project, 'title')}
+			placeholder={noPreviewLabel}
+		/>
+	);
 	const getCase = (item, key) => {
 		if (language === 'ru') {
 			return item[`${key}_ru`] || item[`${key}_en`] || '';
@@ -179,13 +209,7 @@ const Projects = () => {
 													<Col xs={12} md={6} lg={4} key={`pinned-${idx}`}>
 														<Card className="project-card projects-card h-100 is-pinned">
 															<div className="project-card-preview">
-																{p.img ? (
-																	<img src={p.img} alt={getLocalized(p, 'title')} className="project-card-preview-image" loading="lazy" decoding="async" />
-																) : (
-																	<div className="project-card-preview-placeholder">
-																		<span>{noPreviewLabel}</span>
-																	</div>
-																)}
+																{renderPreview(p)}
 															</div>
 															<Card.Body className="projects-card-content">
 																{getLocalized(p, 'description') && (
@@ -246,13 +270,7 @@ const Projects = () => {
 											<Col xs={12} md={6} lg={4} key={`site-${idx}`}>
 													<Card className="project-card projects-card h-100">
 													<div className="project-card-preview">
-														{p.img ? (
-																<img src={p.img} alt={getLocalized(p, 'title')} className="project-card-preview-image" loading="lazy" decoding="async" />
-														) : (
-															<div className="project-card-preview-placeholder">
-																<span>{noPreviewLabel}</span>
-															</div>
-														)}
+														{renderPreview(p)}
 													</div>
 														<Card.Body className="projects-card-content">
 															{getLocalized(p, 'description') && (

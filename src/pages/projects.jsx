@@ -143,6 +143,32 @@ const Projects = () => {
 			placeholder={noPreviewLabel}
 		/>
 	);
+	const getProjectTags = (project) => {
+		const tags = getProjectTopics(project);
+		if (tags.length > 0) {
+			return tags.slice(0, 3);
+		}
+		return [language === 'ru' ? 'проект' : 'project'];
+	};
+	const renderTags = (project, extraTags = []) => (
+		<div className="projects-card-tags">
+			{extraTags.map((tag) => (
+				<Badge key={`extra-${tag}`} bg="light" text="dark" className="me-1">{tag}</Badge>
+			))}
+			{getProjectTags(project).map((tag) => (
+				<Badge key={tag} bg="light" text="dark" className="me-1">{tag}</Badge>
+			))}
+		</div>
+	);
+	const renderGithubLink = (project) => (
+		project.gitHubLink ? (
+			<div className="projects-card-actions">
+				<a href={project.gitHubLink} target="_blank" rel="noreferrer" className="projects-link-btn">
+					{t('projects.githubLink')}
+				</a>
+			</div>
+		) : null
+	);
 	const getCase = (item, key) => {
 		if (language === 'ru') {
 			return item[`${key}_ru`] || item[`${key}_en`] || '';
@@ -215,9 +241,8 @@ const Projects = () => {
 																{getLocalized(p, 'description') && (
 																	<Card.Text className="projects-card-excerpt">{getLocalized(p, 'description')}</Card.Text>
 																)}
-																<div className="projects-card-tags mt-2">
-																	<Badge bg="light" text="dark" className="me-1">Pinned</Badge>
-																</div>
+																{renderTags(p, ['Pinned'])}
+																{renderGithubLink(p)}
 															</Card.Body>
 														</Card>
 													</Col>
@@ -289,16 +314,8 @@ const Projects = () => {
 																	)}
 																</div>
 															)}
-															<div className="projects-card-tags mt-2">
-															{p.skills && p.skills.split(',').slice(0,3).map((s, i) => (
-																<Badge key={i} bg="light" text="dark" className="me-1">{s.trim()}</Badge>
-															))}
-														</div>
-														{p.gitHubLink && (
-																<a href={p.gitHubLink} target="_blank" rel="noreferrer" className="projects-link-btn" style={{marginTop: '1rem'}}>
-																{t('projects.githubLink')}
-															</a>
-														)}
+															{renderTags(p)}
+															{renderGithubLink(p)}
 													</Card.Body>
 												</Card>
 											</Col>

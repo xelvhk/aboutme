@@ -1,6 +1,6 @@
 const STORAGE_KEYS = {
   projects: 'cms.projects',
-  githubCache: 'cms.github.projects.cache.v2',
+  githubCache: 'cms.github.projects.cache.v3',
 };
 
 describe('cms.getProjects integration', () => {
@@ -40,7 +40,7 @@ describe('cms.getProjects integration', () => {
         {
           id: 102,
           name: 'aboutme',
-          description: 'Should be filtered out',
+          description: 'Portfolio site',
           language: 'JavaScript',
           topics: ['react'],
           html_url: 'https://github.com/xelvhk/aboutme',
@@ -66,22 +66,87 @@ describe('cms.getProjects integration', () => {
     const result = await cms.getProjects();
 
     expect(global.fetch).toHaveBeenCalledTimes(1);
-    expect(result).toHaveLength(2);
+    expect(result).toHaveLength(3);
 
     expect(result[0]).toMatchObject({
       id: 'gh-101',
       title: 'vasya_ai',
       type: 'site',
       topics: ['ai', 'fastapi'],
+      pinned: true,
     });
     expect(result[1]).toMatchObject({
+      id: 'gh-102',
+      title: 'aboutme',
+      type: 'site',
+      topics: ['react'],
+      pinned: true,
+    });
+    expect(result[2]).toMatchObject({
       id: 'project-manual-1',
       title: 'Manual item',
       type: 'site',
     });
 
     const savedProjects = JSON.parse(localStorage.getItem(STORAGE_KEYS.projects));
-    expect(savedProjects.map((item) => item.id)).toEqual(['gh-101', 'project-manual-1']);
+    expect(savedProjects.map((item) => item.id)).toEqual(['gh-101', 'gh-102', 'project-manual-1']);
+  });
+
+  test('pins only selected flagship repositories', async () => {
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => [
+        {
+          id: 101,
+          name: 'vasya_ai',
+          description: 'Local AI assistant',
+          language: 'Python',
+          topics: ['ai'],
+          html_url: 'https://github.com/xelvhk/vasya_ai',
+          fork: false,
+          pushed_at: '2026-04-24T08:00:00Z',
+        },
+        {
+          id: 102,
+          name: 'tajnyj_ded_bot',
+          description: 'Secret Santa bot',
+          language: 'Python',
+          topics: ['telegram'],
+          html_url: 'https://github.com/xelvhk/tajnyj_ded_bot',
+          fork: false,
+          pushed_at: '2026-04-23T08:00:00Z',
+        },
+        {
+          id: 103,
+          name: 'aboutme',
+          description: 'Portfolio',
+          language: 'JavaScript',
+          topics: ['react'],
+          html_url: 'https://github.com/xelvhk/aboutme',
+          fork: false,
+          pushed_at: '2026-04-22T08:00:00Z',
+        },
+        {
+          id: 104,
+          name: 'attendance_bot',
+          description: 'Attendance bot',
+          language: 'Python',
+          topics: ['telegram'],
+          html_url: 'https://github.com/xelvhk/attendance_bot',
+          fork: false,
+          pushed_at: '2026-04-21T08:00:00Z',
+        },
+      ],
+    });
+
+    const { cms } = require('./cms');
+    const result = await cms.getProjects();
+
+    expect(result.filter((item) => item.pinned).map((item) => item.title)).toEqual([
+      'vasya_ai',
+      'tajnyj_ded_bot',
+      'aboutme',
+    ]);
   });
 
   test('deduplicates manual projects that point to the same GitHub repository', async () => {

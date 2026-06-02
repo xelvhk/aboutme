@@ -10,13 +10,15 @@ const sampleBlogPosts = [];
 const STORAGE_KEYS = {
     projects: 'cms.projects',
     posts: 'cms.posts',
-    githubCache: 'cms.github.projects.cache.v2'
+    githubCache: 'cms.github.projects.cache.v3'
 };
 
 const GITHUB_USER = process.env.REACT_APP_GITHUB_USER || 'xelvhk';
 const GITHUB_CACHE_TTL_MS = 6 * 60 * 60 * 1000;
 const PROJECT_DESCRIPTION_RU = {
     vasya_ai: 'Локальный AI-ассистент для desktop-задач: голосовые команды, автоматизация и развитие агентных сценариев.',
+    aboutme: 'Портфолио в стиле персональной desktop OS с автосинхронизацией GitHub-проектов и блогом из Markdown.',
+    tajnyj_ded_bot: 'Telegram-бот для жеребьевки Тайного Санты с приватным распределением участников.',
     attendance_bot: 'Telegram-бот для учета посещаемости, реализованный на Aiogram.',
     js_marvel: 'Веб-приложение с персонажами Marvel и загрузкой данных из внешнего API.',
     'login-form-with-animation': 'Анимированная форма авторизации с упором на UI/UX и микроанимации.',
@@ -24,10 +26,8 @@ const PROJECT_DESCRIPTION_RU = {
 };
 const PINNED_REPOS = new Set([
     "vasya_ai",
-    "attendance_bot",
-    "js_marvel",
+    "tajnyj_ded_bot",
     "aboutme",
-    "python-tasks-taskbot",
 ]);
 
 function normalizeRepoName(value) {
@@ -140,7 +140,7 @@ function formatGithubRepo(repo) {
 
 function shouldIncludeGithubRepo(repo) {
     if (!repo || repo.fork || !repo.name) return false;
-    if (repo.name === 'aboutme' || repo.name === 'xelvhk') return false;
+    if (repo.name === 'xelvhk') return false;
     return true;
 }
 

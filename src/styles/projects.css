@@ -82,6 +82,7 @@
   padding: 0.35rem;
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .projects-card-excerpt {
@@ -118,6 +119,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
+  min-height: 1.8rem;
+  margin-top: 0.35rem;
+  margin-bottom: 0.25rem;
 }
 
 .projects-card-tags .badge {
@@ -169,6 +173,13 @@
   color: #fff;
   padding: 0.42rem 0.75rem;
   font-size: 0.82rem;
+}
+
+.projects-card-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: auto;
+  padding-top: 1rem;
 }
 
 .projects-link-btn:hover {

@@ -594,6 +594,11 @@ body.macos-body {
     gap: 0.2rem;
   }
 
+  .mac-sticker-theme,
+  .mac-note-board-wrap {
+    display: none;
+  }
+
   .mac-desktop-layout {
     grid-template-columns: 1fr;
     overflow: auto;

@@ -1,5 +1,9 @@
 # aboutme
 
+[![CI](https://github.com/xelvhk/aboutme/actions/workflows/ci.yml/badge.svg)](https://github.com/xelvhk/aboutme/actions/workflows/ci.yml)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPLv3-blue.svg)](LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/xelvhk/aboutme)](https://github.com/xelvhk/aboutme/commits/main)
+
 Портфолио разработчика с автосинхронизацией GitHub-проектов, двуязычным контентом (RU/EN) и деплоем на GitHub Pages.
 
 ## Проблема
@@ -68,6 +72,9 @@ Active development
 ## CI
 - `npm ci`
 - `npm run build`
+
+## Changelog
+См. [CHANGELOG.md](CHANGELOG.md).
 
 ## Лицензия
 GNU AGPLv3. См. [LICENSE](LICENSE).

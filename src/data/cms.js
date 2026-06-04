@@ -50,6 +50,33 @@ const PINNED_REPOS = new Set([
 const PROJECT_PREVIEW_FILES = {
     fashion_store_with_react: 'fashion_store_with_React.svg',
 };
+const PROJECT_TOPIC_FALLBACKS = {
+    vasya_ai: ['python', 'ai', 'automation'],
+    aboutme: ['react', 'portfolio', 'markdown'],
+    tajnyj_ded_bot: ['python', 'telegram', 'aiogram'],
+    attendance_bot: ['python', 'telegram', 'aiogram'],
+    'python-tasks-taskbot': ['python', 'telegram', 'tasks'],
+    taskflow_orchestrator: ['fastapi', 'postgresql', 'redis'],
+    'js-marvel': ['javascript', 'api', 'frontend'],
+    'login-form-with-animation': ['frontend', 'css', 'animation'],
+    'rock_paper_scissors_bot': ['python', 'telegram', 'game'],
+    radar_bot: ['python', 'telegram', 'aiogram'],
+    helper_bot: ['python', 'telegram', 'assistant'],
+    finance_manager_bot: ['python', 'telegram', 'finance'],
+    'php-package': ['php', 'package', 'library'],
+    blog: ['php', 'sqlite', 'backend'],
+    farmgame: ['html', 'css', 'landing'],
+    fashion_store_with_react: ['react', 'frontend', 'ui'],
+    diff_strings: ['python', 'algorithms', 'cli'],
+    sql_queries: ['sql', 'database', 'queries'],
+    'hexlet-laravel-blog': ['php', 'laravel', 'mvc'],
+    'hexlet-php': ['php', 'learning', 'practice'],
+    'hexlet-phpunit': ['php', 'testing', 'phpunit'],
+    'hexlet-my-first-workflow': ['github-actions', 'ci', 'automation'],
+    'php-project-45': ['php', 'cli', 'architecture'],
+    'php-tests': ['php', 'testing', 'quality'],
+    'http-queries': ['http', 'networking', 'requests'],
+};
 
 function normalizeRepoName(value) {
     return String(value || '').trim().toLowerCase();
@@ -69,6 +96,13 @@ function getProjectPreviewUrl(repoName) {
     if (!key) return '';
     const fileName = PROJECT_PREVIEW_FILES[key] || `${key}.svg`;
     return `${process.env.PUBLIC_URL || ''}/project-previews/${encodeURIComponent(fileName)}`;
+}
+
+function getProjectTopicsFallback(repo) {
+    const key = normalizeRepoName(repo?.name || repo?.title);
+    const fallbackTopics = PROJECT_TOPIC_FALLBACKS[key] || [];
+    const languageTopic = repo?.language ? [String(repo.language).trim().toLowerCase()] : [];
+    return Array.from(new Set([...fallbackTopics, ...languageTopic])).filter(Boolean);
 }
 
 function readFromStorage(key, fallback) {
@@ -127,9 +161,10 @@ function buildProjectCase(repo) {
 
 function formatGithubRepo(repo) {
     const skills = [];
-    const topics = Array.isArray(repo.topics)
+    const repoTopics = Array.isArray(repo.topics)
         ? repo.topics.filter(Boolean).map((topic) => String(topic).trim().toLowerCase())
         : [];
+    const topics = repoTopics.length > 0 ? repoTopics : getProjectTopicsFallback(repo);
 
     if (repo.language) {
         skills.push(repo.language);

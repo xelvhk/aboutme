@@ -169,6 +169,7 @@ const Projects = () => {
 			</div>
 		) : null
 	);
+	const pinnedTag = language === 'ru' ? 'Закреплено' : 'Pinned';
 	const getCase = (item, key) => {
 		if (language === 'ru') {
 			return item[`${key}_ru`] || item[`${key}_en`] || '';
@@ -241,7 +242,7 @@ const Projects = () => {
 																{getLocalized(p, 'description') && (
 																	<Card.Text className="projects-card-excerpt">{getLocalized(p, 'description')}</Card.Text>
 																)}
-																{renderTags(p, ['Pinned'])}
+																{renderTags(p, [pinnedTag])}
 																{renderGithubLink(p)}
 															</Card.Body>
 														</Card>

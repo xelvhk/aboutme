@@ -149,6 +149,33 @@ describe('cms.getProjects integration', () => {
     ]);
   });
 
+  test('adds meaningful fallback topics when GitHub repo has no topics', async () => {
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => [
+        {
+          id: 201,
+          name: 'js-marvel',
+          description: 'Marvel character browser',
+          language: 'JavaScript',
+          topics: [],
+          html_url: 'https://github.com/xelvhk/js-marvel',
+          fork: false,
+          pushed_at: '2026-04-24T08:00:00Z',
+        },
+      ],
+    });
+
+    const { cms } = require('./cms');
+    const result = await cms.getProjects();
+
+    expect(result[0]).toMatchObject({
+      title: 'js-marvel',
+      topics: ['javascript', 'api', 'frontend'],
+      skills: 'JavaScript, javascript, api, frontend',
+    });
+  });
+
   test('deduplicates manual projects that point to the same GitHub repository', async () => {
     localStorage.setItem(
       STORAGE_KEYS.projects,

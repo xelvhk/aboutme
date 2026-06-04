@@ -1,4 +1,3 @@
-import project01 from "./../img/projects/01.jpg";
 import project01Big from "./../img/projects/01-big.jpg";
 
 import project02 from "./../img/projects/02.jpg";
@@ -7,6 +6,7 @@ import project02Big from "./../img/projects/02-big.jpg";
 import project03 from "./../img/projects/03.jpg";
 import project03Big from "./../img/projects/03-big.jpg";
 
+const previewBase = `${process.env.PUBLIC_URL || ''}/project-previews`;
 
 const projects = [
 	{
@@ -18,7 +18,7 @@ const projects = [
 		description_ru: 'Статическая промо-страница бургер-ресторана с выразительным hero-блоком, меню и адаптивной версткой.',
 		skills: 'Angular, HTML, CSS',
 		topics: ['frontend', 'landing-page', 'responsive-design'],
-		img: project01,
+		img: `${previewBase}/burgers-restaurant-site.svg`,
 		imgBig: project01Big,
 		problem_en: 'Create a visually clear landing page for a food business with structured sections and responsive layout.',
 		solution_en: 'Implemented a frontend page with reusable visual blocks, strong typography, and adaptive CSS.',

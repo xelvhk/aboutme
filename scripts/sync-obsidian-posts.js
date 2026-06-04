@@ -212,6 +212,32 @@ function buildBilingualPosts(items) {
   };
 }
 
+function stablePayload(payload) {
+  const { generatedAt, ...stable } = payload;
+  return stable;
+}
+
+function readExistingPayload() {
+  try {
+    return JSON.parse(fs.readFileSync(OUTPUT_FILE, "utf8"));
+  } catch (error) {
+    return null;
+  }
+}
+
+function writePayloadIfChanged(payload) {
+  const existing = readExistingPayload();
+  if (existing && JSON.stringify(stablePayload(existing)) === JSON.stringify(stablePayload(payload))) {
+    console.log(`Generated ${payload.posts.length} posts -> ${OUTPUT_FILE} (unchanged)`);
+    if (payload.reason) console.log(payload.reason);
+    return;
+  }
+
+  fs.writeFileSync(OUTPUT_FILE, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+  console.log(`Generated ${payload.posts.length} posts -> ${OUTPUT_FILE}`);
+  if (payload.reason) console.log(payload.reason);
+}
+
 function main() {
   let posts = [];
   let reason = "";
@@ -259,9 +285,7 @@ function main() {
     posts,
   };
 
-  fs.writeFileSync(OUTPUT_FILE, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
-  console.log(`Generated ${posts.length} posts -> ${OUTPUT_FILE}`);
-  if (reason) console.log(reason);
+  writePayloadIfChanged(payload);
 }
 
 main();

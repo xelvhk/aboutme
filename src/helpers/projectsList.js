@@ -35,6 +35,7 @@ const projects = [
 		description_ru: 'Веб-приложение на JavaScript для поиска персонажей Marvel, пагинации и работы с внешним API.',
 		skills: 'JavaScript, API, Bootstrap',
 		topics: ['javascript', 'api-integration', 'frontend'],
+		img: `${previewBase}/js-marvel.svg`,
 		gitHubLink: 'https://github.com/xelvhk/js-marvel',
 		problem_en: 'Build a frontend app that loads Marvel characters from an external API and keeps navigation understandable.',
 		solution_en: 'Implemented API requests, pagination, routing, and reusable UI blocks with vanilla JavaScript and Bootstrap.',

@@ -8,7 +8,7 @@ const sampleBlogPosts = [];
 
 // Storage helpers
 const STORAGE_KEYS = {
-    projects: 'cms.projects.v3',
+    projects: 'cms.projects.v4',
     posts: 'cms.posts',
     githubCache: 'cms.github.projects.cache.v7'
 };

@@ -1,9 +1,7 @@
 import project01Big from "./../img/projects/01-big.jpg";
 
-import project02 from "./../img/projects/02.jpg";
 import project02Big from "./../img/projects/02-big.jpg";
 
-import project03 from "./../img/projects/03.jpg";
 import project03Big from "./../img/projects/03-big.jpg";
 
 const previewBase = `${process.env.PUBLIC_URL || ''}/project-previews`;
@@ -53,7 +51,7 @@ const projects = [
 		description: 'Static promo landing page with themed visual design and responsive CSS layout.',
 		description_en: 'Static promo landing page with themed visual design and responsive CSS layout.',
 		description_ru: 'Статическая промо-страница с тематическим визуальным стилем и адаптивной CSS-версткой.',
-		img: project02,
+		img: `${previewBase}/farmgame.svg`,
 		imgBig: project02Big,
 		skills: 'HTML, CSS',
 		topics: ['html', 'css', 'landing-page'],
@@ -73,7 +71,7 @@ const projects = [
 		description: 'React storefront UI practice with component-based layout and responsive styling.',
 		description_en: 'React storefront UI practice with component-based layout and responsive styling.',
 		description_ru: 'Frontend-проект витрины магазина на React с компонентной структурой и адаптивной стилизацией.',
-		img: project03,
+		img: `${previewBase}/fashion_store_with_React.svg`,
 		imgBig: project03Big,
 		skills: 'React, HTML, CSS',
 		topics: ['react', 'frontend', 'ecommerce'],

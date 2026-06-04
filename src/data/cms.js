@@ -8,9 +8,9 @@ const sampleBlogPosts = [];
 
 // Storage helpers
 const STORAGE_KEYS = {
-    projects: 'cms.projects.v2',
+    projects: 'cms.projects.v3',
     posts: 'cms.posts',
-    githubCache: 'cms.github.projects.cache.v6'
+    githubCache: 'cms.github.projects.cache.v7'
 };
 
 const GITHUB_USER = process.env.REACT_APP_GITHUB_USER || 'xelvhk';
@@ -47,6 +47,9 @@ const PINNED_REPOS = new Set([
     "tajnyj_ded_bot",
     "aboutme",
 ]);
+const PROJECT_PREVIEW_FILES = {
+    fashion_store_with_react: 'fashion_store_with_React.svg',
+};
 
 function normalizeRepoName(value) {
     return String(value || '').trim().toLowerCase();
@@ -64,7 +67,8 @@ function getProjectKey(project) {
 function getProjectPreviewUrl(repoName) {
     const key = normalizeRepoName(repoName);
     if (!key) return '';
-    return `${process.env.PUBLIC_URL || ''}/project-previews/${encodeURIComponent(key)}.svg`;
+    const fileName = PROJECT_PREVIEW_FILES[key] || `${key}.svg`;
+    return `${process.env.PUBLIC_URL || ''}/project-previews/${encodeURIComponent(fileName)}`;
 }
 
 function readFromStorage(key, fallback) {

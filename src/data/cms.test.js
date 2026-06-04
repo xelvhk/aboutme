@@ -1,6 +1,6 @@
 const STORAGE_KEYS = {
-  projects: 'cms.projects',
-  githubCache: 'cms.github.projects.cache.v3',
+  projects: 'cms.projects.v2',
+  githubCache: 'cms.github.projects.cache.v6',
 };
 
 describe('cms.getProjects integration', () => {

@@ -8,9 +8,9 @@ const sampleBlogPosts = [];
 
 // Storage helpers
 const STORAGE_KEYS = {
-    projects: 'cms.projects',
+    projects: 'cms.projects.v2',
     posts: 'cms.posts',
-    githubCache: 'cms.github.projects.cache.v3'
+    githubCache: 'cms.github.projects.cache.v6'
 };
 
 const GITHUB_USER = process.env.REACT_APP_GITHUB_USER || 'xelvhk';
@@ -20,8 +20,26 @@ const PROJECT_DESCRIPTION_RU = {
     aboutme: 'Портфолио в стиле персональной desktop OS с автосинхронизацией GitHub-проектов и блогом из Markdown.',
     tajnyj_ded_bot: 'Telegram-бот для жеребьевки Тайного Санты с приватным распределением участников.',
     attendance_bot: 'Telegram-бот для учета посещаемости, реализованный на Aiogram.',
-    js_marvel: 'Веб-приложение с персонажами Marvel и загрузкой данных из внешнего API.',
+    'python-tasks-taskbot': 'Telegram-бот для личных задач и продуктивности: учет задач, ежедневные сценарии и автоматизация рутины.',
+    taskflow_orchestrator: 'Backend-сервис для асинхронной оркестрации задач на FastAPI, Celery, PostgreSQL и Redis.',
+    'js-marvel': 'Веб-приложение на JavaScript для поиска персонажей Marvel, пагинации и работы с внешним API.',
     'login-form-with-animation': 'Анимированная форма авторизации с упором на UI/UX и микроанимации.',
+    'rock_paper_scissors_bot': 'Telegram-бот с игрой «камень, ножницы, бумага» на Python и Aiogram.',
+    radar_bot: 'Telegram-бот для практики backend-логики на Python и разработки на Aiogram.',
+    helper_bot: 'Виртуальный Telegram-помощник на Aiogram для простых пользовательских сценариев.',
+    finance_manager_bot: 'Telegram-бот для учета личных финансов и практики автоматизации повседневных задач.',
+    'php-package': 'Учебный PHP-пакет с акцентом на структуру библиотеки, автозагрузку и повторное использование кода.',
+    blog: 'Простой блог на PHP, Apache и SQLite с базовой серверной логикой и хранением данных.',
+    farmgame: 'Статическая промо-страница с тематическим визуальным стилем и адаптивной версткой.',
+    fashion_store_with_React: 'Frontend-проект витрины магазина на React с компонентным подходом и адаптивным UI.',
+    diff_strings: 'Python-утилита для сравнения строк и практики алгоритмического мышления.',
+    sql_queries: 'Набор учебных SQL-запросов для практики выборок, фильтрации и работы с данными.',
+    'hexlet-laravel-blog': 'Учебный Laravel-блог для практики MVC, маршрутизации и серверной разработки на PHP.',
+    'hexlet-php': 'Учебный репозиторий по PHP с базовыми задачами и практикой языка.',
+    'hexlet-phpunit': 'Учебный проект по PHPUnit и тестированию PHP-кода.',
+    'hexlet-my-first-workflow': 'Учебный репозиторий для практики GitHub Actions и базовой CI-автоматизации.',
+    'php-project-45': 'Учебный CLI-проект на PHP с фокусом на архитектуру консольного приложения.',
+    'php-tests': 'Учебный репозиторий для практики тестирования и качества PHP-кода.',
     'http-queries': 'Учебный проект по HTTP-протоколу и сетевым запросам.',
 };
 const PINNED_REPOS = new Set([

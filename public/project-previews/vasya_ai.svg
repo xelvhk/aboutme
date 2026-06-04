@@ -31,33 +31,33 @@
     <circle cx="218" cy="124" r="12" fill="#5bd66f"/>
     <text x="262" y="132" font-family="Manrope, Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#eff6ff">xelvhk OS / project preview</text>
   </g>
-  <g transform="translate(790 218)">
-    <circle cx="112" cy="112" r="112" fill="#60a5fa" opacity="0.16"/>
-    <circle cx="112" cy="112" r="78" fill="rgba(255,255,255,0.14)" stroke="#60a5fa" stroke-width="3"/>
-    <text x="112" y="124" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="40" font-weight="900" fill="#f8fafc">AI</text>
+  <g transform="translate(790 238)">
+    <circle cx="112" cy="112" r="108" fill="#60a5fa" opacity="0.16"/>
+    <circle cx="112" cy="112" r="74" fill="rgba(255,255,255,0.14)" stroke="#60a5fa" stroke-width="3"/>
+    <text x="112" y="123" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="38" font-weight="900" fill="#f8fafc">AI</text>
   </g>
-  <g transform="translate(148 215)">
-    <text x="0" y="0" font-family="Manrope, Inter, Arial, sans-serif" font-size="58" font-weight="900" fill="#f8fafc">vasya_ai</text>
-    <text x="0" y="58" font-family="Manrope, Inter, Arial, sans-serif" font-size="28" font-weight="600" fill="#bfdbfe">Local-first AI assistant</text>
-    <rect x="0" y="104" width="520" height="4" rx="2" fill="#60a5fa"/>
-    <g transform="translate(0 142)">
+  <g transform="translate(148 258)">
+    <text x="0" y="0" font-family="Manrope, Inter, Arial, sans-serif" font-size="46" font-weight="900" fill="#f8fafc">vasya_ai</text>
+    <text x="0" y="52" font-family="Manrope, Inter, Arial, sans-serif" font-size="24" font-weight="600" fill="#bfdbfe">Local-first AI assistant</text>
+    <rect x="0" y="92" width="484" height="4" rx="2" fill="#60a5fa"/>
+    <g transform="translate(0 126)">
       <g transform="translate(0 0)">
-        <rect width="102" height="38" rx="19" fill="rgba(255,255,255,0.16)" stroke="#60a5fa" stroke-opacity="0.48"/>
-        <text x="51" y="25" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#eff6ff">Python</text>
+        <rect width="102" height="36" rx="18" fill="rgba(255,255,255,0.16)" stroke="#60a5fa" stroke-opacity="0.48"/>
+        <text x="51" y="24" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#eff6ff">Python</text>
       </g>
       <g transform="translate(116 0)">
-        <rect width="86" height="38" rx="19" fill="rgba(255,255,255,0.16)" stroke="#60a5fa" stroke-opacity="0.48"/>
-        <text x="43" y="25" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#eff6ff">AI</text>
+        <rect width="86" height="36" rx="18" fill="rgba(255,255,255,0.16)" stroke="#60a5fa" stroke-opacity="0.48"/>
+        <text x="43" y="24" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#eff6ff">AI</text>
       </g>
       <g transform="translate(216 0)">
-        <rect width="92" height="38" rx="19" fill="rgba(255,255,255,0.16)" stroke="#60a5fa" stroke-opacity="0.48"/>
-        <text x="46" y="25" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#eff6ff">Voice</text>
+        <rect width="92" height="36" rx="18" fill="rgba(255,255,255,0.16)" stroke="#60a5fa" stroke-opacity="0.48"/>
+        <text x="46" y="24" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#eff6ff">Voice</text>
       </g>
     </g>
   </g>
   <g opacity="0.55" fill="none" stroke="#60a5fa" stroke-width="2">
-    <path d="M735 470 h210 q18 0 18 18 v40"/>
-    <path d="M708 500 h126"/>
-    <circle cx="692" cy="500" r="5" fill="#60a5fa"/>
+    <path d="M735 486 h210 q18 0 18 18 v34"/>
+    <path d="M708 516 h126"/>
+    <circle cx="692" cy="516" r="5" fill="#60a5fa"/>
   </g>
 </svg>

@@ -186,7 +186,7 @@ describe('cms.getProjects integration', () => {
 
     expect(result.map((item) => item.id)).toEqual(['gh-101', 'project-manual-2']);
     expect(result.filter((item) => item.title === 'vasya_ai')).toHaveLength(1);
-    expect(result[0].img).toBe('/project-previews/vasya_ai.webp');
+    expect(result[0].img).toBe('/project-previews/vasya_ai.svg');
   });
 
   test('deduplicates manual projects by title when GitHub URL is absent', async () => {

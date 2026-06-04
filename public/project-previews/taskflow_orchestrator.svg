@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="taskflow_orchestrator preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#172554"/>
+      <stop offset="0.48" stop-color="#1e3a8a"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#fb7185" stop-opacity="0.95"/>
+      <stop offset="0.58" stop-color="#fb7185" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#fb7185" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="22"/></filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#020617" flood-opacity="0.34"/></filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="982" cy="118" r="260" fill="url(#orb)" filter="url(#blur)"/>
+  <circle cx="130" cy="590" r="320" fill="#fb7185" opacity="0.12" filter="url(#blur)"/>
+  <path d="M0 525 C250 465 420 620 690 548 C885 496 1018 468 1200 516 L1200 675 L0 675 Z" fill="#ffffff" opacity="0.08"/>
+  <g opacity="0.16" stroke="#dbeafe" stroke-width="1">
+    <path d="M94 96 H1096"/>
+    <path d="M94 575 H1096"/>
+    <path d="M132 56 V623"/>
+    <path d="M1068 56 V623"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="98" y="86" width="1004" height="503" rx="44" fill="rgba(15,23,42,0.58)" stroke="rgba(255,255,255,0.36)"/>
+    <rect x="98" y="86" width="1004" height="76" rx="44" fill="rgba(255,255,255,0.16)"/>
+    <circle cx="142" cy="124" r="12" fill="#ff6b5f"/>
+    <circle cx="180" cy="124" r="12" fill="#ffd166"/>
+    <circle cx="218" cy="124" r="12" fill="#5bd66f"/>
+    <text x="262" y="132" font-family="Manrope, Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#eff6ff">xelvhk OS / project preview</text>
+  </g>
+  <g transform="translate(790 218)">
+    <circle cx="112" cy="112" r="112" fill="#fb7185" opacity="0.16"/>
+    <circle cx="112" cy="112" r="78" fill="rgba(255,255,255,0.14)" stroke="#fb7185" stroke-width="3"/>
+    <text x="112" y="124" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="40" font-weight="900" fill="#f8fafc">API</text>
+  </g>
+  <g transform="translate(148 215)">
+    <text x="0" y="0" font-family="Manrope, Inter, Arial, sans-serif" font-size="58" font-weight="900" fill="#f8fafc">taskflow_orchestrator</text>
+    <text x="0" y="58" font-family="Manrope, Inter, Arial, sans-serif" font-size="28" font-weight="600" fill="#bfdbfe">Async backend orchestration API</text>
+    <rect x="0" y="100" width="520" height="4" rx="2" fill="#fb7185"/>
+  </g>
+  
+      <g transform="translate(48 276)">
+        <rect width="142" height="34" rx="17" fill="rgba(255,255,255,0.16)" stroke="#fb7185" stroke-opacity="0.42"/>
+        <text x="71" y="22" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#eff6ff">FastAPI</text>
+      </g>
+      <g transform="translate(216 276)">
+        <rect width="142" height="34" rx="17" fill="rgba(255,255,255,0.16)" stroke="#fb7185" stroke-opacity="0.42"/>
+        <text x="71" y="22" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#eff6ff">Celery</text>
+      </g>
+      <g transform="translate(384 276)">
+        <rect width="142" height="34" rx="17" fill="rgba(255,255,255,0.16)" stroke="#fb7185" stroke-opacity="0.42"/>
+        <text x="71" y="22" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#eff6ff">Redis</text>
+      </g>
+  <g opacity="0.55" fill="none" stroke="#fb7185" stroke-width="2">
+    <path d="M735 470 h210 q18 0 18 18 v40"/>
+    <path d="M708 500 h126"/>
+    <circle cx="692" cy="500" r="5" fill="#fb7185"/>
+  </g>
+</svg>

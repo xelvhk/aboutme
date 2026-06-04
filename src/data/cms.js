@@ -64,7 +64,7 @@ function getProjectKey(project) {
 function getProjectPreviewUrl(repoName) {
     const key = normalizeRepoName(repoName);
     if (!key) return '';
-    return `${process.env.PUBLIC_URL || ''}/project-previews/${encodeURIComponent(key)}.webp`;
+    return `${process.env.PUBLIC_URL || ''}/project-previews/${encodeURIComponent(key)}.svg`;
 }
 
 function readFromStorage(key, fallback) {

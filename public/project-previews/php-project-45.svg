@@ -39,21 +39,22 @@
   <g transform="translate(148 215)">
     <text x="0" y="0" font-family="Manrope, Inter, Arial, sans-serif" font-size="58" font-weight="900" fill="#f8fafc">php-project-45</text>
     <text x="0" y="58" font-family="Manrope, Inter, Arial, sans-serif" font-size="28" font-weight="600" fill="#bfdbfe">PHP CLI application practice</text>
-    <rect x="0" y="100" width="520" height="4" rx="2" fill="#f0abfc"/>
+    <rect x="0" y="104" width="520" height="4" rx="2" fill="#f0abfc"/>
+    <g transform="translate(0 142)">
+      <g transform="translate(0 0)">
+        <rect width="86" height="38" rx="19" fill="rgba(255,255,255,0.16)" stroke="#f0abfc" stroke-opacity="0.48"/>
+        <text x="43" y="25" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#eff6ff">PHP</text>
+      </g>
+      <g transform="translate(100 0)">
+        <rect width="86" height="38" rx="19" fill="rgba(255,255,255,0.16)" stroke="#f0abfc" stroke-opacity="0.48"/>
+        <text x="43" y="25" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#eff6ff">CLI</text>
+      </g>
+      <g transform="translate(200 0)">
+        <rect width="102" height="38" rx="19" fill="rgba(255,255,255,0.16)" stroke="#f0abfc" stroke-opacity="0.48"/>
+        <text x="51" y="25" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="15" font-weight="800" fill="#eff6ff">Hexlet</text>
+      </g>
+    </g>
   </g>
-  
-      <g transform="translate(48 276)">
-        <rect width="142" height="34" rx="17" fill="rgba(255,255,255,0.16)" stroke="#f0abfc" stroke-opacity="0.42"/>
-        <text x="71" y="22" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#eff6ff">PHP</text>
-      </g>
-      <g transform="translate(216 276)">
-        <rect width="142" height="34" rx="17" fill="rgba(255,255,255,0.16)" stroke="#f0abfc" stroke-opacity="0.42"/>
-        <text x="71" y="22" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#eff6ff">CLI</text>
-      </g>
-      <g transform="translate(384 276)">
-        <rect width="142" height="34" rx="17" fill="rgba(255,255,255,0.16)" stroke="#f0abfc" stroke-opacity="0.42"/>
-        <text x="71" y="22" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#eff6ff">Hexlet</text>
-      </g>
   <g opacity="0.55" fill="none" stroke="#f0abfc" stroke-width="2">
     <path d="M735 470 h210 q18 0 18 18 v40"/>
     <path d="M708 500 h126"/>

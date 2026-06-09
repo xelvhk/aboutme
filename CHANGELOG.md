@@ -8,13 +8,13 @@ The format follows a lightweight release-notes style.
 
 No unreleased changes yet.
 
-## [0.1.0] - 2026-06-03
+## [0.1.0] - 2026-06-09
 
 ### Added
 
 - macOS-inspired personal desktop interface.
 - GitHub-driven project cards with pinned projects and topic/category filters.
-- Project preview convention: `public/project-previews/<repo-name>.webp`.
+- Project preview convention: `public/project-previews/<repo-name>.svg`.
 - Markdown blog flow generated from Obsidian posts.
 - Bilingual content support for English and Russian.
 - GitHub Pages deployment workflow and CI build check.

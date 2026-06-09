@@ -42,12 +42,12 @@ REACT_APP_GITHUB_USER=xelvhk
 ## Project Previews
 GitHub project cards use local preview images when available.
 
-Add a WebP file to `public/project-previews/` using the repository name:
+Add an SVG file to `public/project-previews/` using the repository name:
 
 ```text
-public/project-previews/vasya_ai.webp
-public/project-previews/tajnyj_ded_bot.webp
-public/project-previews/aboutme.webp
+public/project-previews/vasya_ai.svg
+public/project-previews/tajnyj_ded_bot.svg
+public/project-previews/aboutme.svg
 ```
 
 If an image is missing or fails to load, the card falls back to the default preview placeholder.

@@ -42,12 +42,12 @@ REACT_APP_GITHUB_USER=xelvhk
 ## Превью проектов
 Карточки GitHub-проектов используют локальные изображения, если они есть.
 
-Добавьте WebP-файл в `public/project-previews/` с названием репозитория:
+Добавьте SVG-файл в `public/project-previews/` с названием репозитория:
 
 ```text
-public/project-previews/vasya_ai.webp
-public/project-previews/tajnyj_ded_bot.webp
-public/project-previews/aboutme.webp
+public/project-previews/vasya_ai.svg
+public/project-previews/tajnyj_ded_bot.svg
+public/project-previews/aboutme.svg
 ```
 
 Если изображения нет или оно не загрузилось, карточка покажет стандартную заглушку.

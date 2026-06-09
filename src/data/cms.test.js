@@ -176,6 +176,34 @@ describe('cms.getProjects integration', () => {
     });
   });
 
+  test('formats ai_predictor with product description, fallback topics, and preview', async () => {
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => [
+        {
+          id: 202,
+          name: 'ai_predictor',
+          description: 'Streamlit app for lottery archive ingestion, statistics, and experimental predictions.',
+          language: 'Python',
+          topics: [],
+          html_url: 'https://github.com/xelvhk/ai_predictor',
+          fork: false,
+          pushed_at: '2026-04-24T08:00:00Z',
+        },
+      ],
+    });
+
+    const { cms } = require('./cms');
+    const result = await cms.getProjects();
+
+    expect(result[0]).toMatchObject({
+      title: 'ai_predictor',
+      description_ru: 'Streamlit-приложение для анализа архивов лотерей, проверки качества данных и экспериментальных ML-рекомендаций.',
+      topics: ['python', 'streamlit', 'ml'],
+      img: '/project-previews/ai_predictor.svg',
+    });
+  });
+
   test('deduplicates manual projects that point to the same GitHub repository', async () => {
     localStorage.setItem(
       STORAGE_KEYS.projects,

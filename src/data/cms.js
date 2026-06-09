@@ -22,6 +22,8 @@ const PROJECT_DESCRIPTION_RU = {
     attendance_bot: 'Telegram-бот для учета посещаемости, реализованный на Aiogram.',
     'python-tasks-taskbot': 'Telegram-бот для личных задач и продуктивности: учет задач, ежедневные сценарии и автоматизация рутины.',
     taskflow_orchestrator: 'Backend-сервис для асинхронной оркестрации задач на FastAPI, Celery, PostgreSQL и Redis.',
+    ai_predictor: 'Streamlit-приложение для анализа архивов лотерей, проверки качества данных и экспериментальных ML-рекомендаций.',
+    'ai-predictor': 'Streamlit-приложение для анализа архивов лотерей, проверки качества данных и экспериментальных ML-рекомендаций.',
     'js-marvel': 'Веб-приложение на JavaScript для поиска персонажей Marvel, пагинации и работы с внешним API.',
     'login-form-with-animation': 'Анимированная форма авторизации с упором на UI/UX и микроанимации.',
     'rock_paper_scissors_bot': 'Telegram-бот с игрой «камень, ножницы, бумага» на Python и Aiogram.',
@@ -48,6 +50,7 @@ const PINNED_REPOS = new Set([
     "aboutme",
 ]);
 const PROJECT_PREVIEW_FILES = {
+    'ai-predictor': 'ai_predictor.svg',
     fashion_store_with_react: 'fashion_store_with_React.svg',
 };
 const PROJECT_TOPIC_FALLBACKS = {
@@ -57,6 +60,8 @@ const PROJECT_TOPIC_FALLBACKS = {
     attendance_bot: ['python', 'telegram', 'aiogram'],
     'python-tasks-taskbot': ['python', 'telegram', 'tasks'],
     taskflow_orchestrator: ['fastapi', 'postgresql', 'redis'],
+    ai_predictor: ['python', 'streamlit', 'ml'],
+    'ai-predictor': ['python', 'streamlit', 'ml'],
     'js-marvel': ['javascript', 'api', 'frontend'],
     'login-form-with-animation': ['frontend', 'css', 'animation'],
     'rock_paper_scissors_bot': ['python', 'telegram', 'game'],

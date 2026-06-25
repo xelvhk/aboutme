@@ -244,6 +244,11 @@ function main() {
 
   if (!fs.existsSync(POSTS_DIR)) {
     reason = `Posts dir not found: ${POSTS_DIR}`;
+    if (fs.existsSync(OUTPUT_FILE)) {
+      console.log(`Skipped blog sync -> ${OUTPUT_FILE} (kept existing generated data)`);
+      console.log(reason);
+      return;
+    }
   } else {
     const files = walkMdFiles(POSTS_DIR);
     const parsed = files.map((absolutePath) => {

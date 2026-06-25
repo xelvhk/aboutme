@@ -1,6 +1,6 @@
 const STORAGE_KEYS = {
   projects: 'cms.projects.v4',
-  githubCache: 'cms.github.projects.cache.v7',
+  githubCache: 'cms.github.projects.cache.v8',
 };
 
 describe('cms.getProjects integration', () => {
@@ -201,6 +201,34 @@ describe('cms.getProjects integration', () => {
       description_ru: 'Streamlit-приложение для анализа архивов лотерей, проверки качества данных и экспериментальных ML-рекомендаций.',
       topics: ['python', 'streamlit', 'ml'],
       img: '/project-previews/ai_predictor.svg',
+    });
+  });
+
+  test('formats vasya_ai_landing with landing description, fallback topics, and preview', async () => {
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => [
+        {
+          id: 203,
+          name: 'vasya_ai_landing',
+          description: 'Landing page for the Vasya AI assistant.',
+          language: 'HTML',
+          topics: [],
+          html_url: 'https://github.com/xelvhk/vasya_ai_landing',
+          fork: false,
+          pushed_at: '2026-06-24T08:00:00Z',
+        },
+      ],
+    });
+
+    const { cms } = require('./cms');
+    const result = await cms.getProjects();
+
+    expect(result[0]).toMatchObject({
+      title: 'vasya_ai_landing',
+      description_ru: 'Статическая landing page для презентации vasya_ai: фокус на продуктовой подаче, сценариях использования и понятном frontend-оформлении.',
+      topics: ['html', 'css', 'landing'],
+      img: '/project-previews/vasya_ai_landing.svg',
     });
   });
 

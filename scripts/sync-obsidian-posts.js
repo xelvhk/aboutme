@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 const REPO_ROOT = path.resolve(__dirname, "..");
-const DEFAULT_POSTS_DIR = "/Users/oksana/Documents/Obsidian Vault/03_Knowledge/Posts";
+const DEFAULT_POSTS_DIR = "/Users/oksana/Documents/Obsidian Vault/30_Knowledge/Posts";
 const POSTS_DIR = process.env.OBSIDIAN_POSTS_DIR || DEFAULT_POSTS_DIR;
 const OUTPUT_FILE = path.join(REPO_ROOT, "src", "data", "blog.generated.json");
 

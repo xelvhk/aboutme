@@ -1,4 +1,5 @@
 import React, { useMemo, useState, useEffect, useCallback } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Card, Badge } from 'react-bootstrap';
 import { cms } from '../data/cms';
 import { useTranslation } from '../data/translations';

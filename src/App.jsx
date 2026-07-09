@@ -3,18 +3,32 @@ import "./styles/App.css";
 import "./styles/macos.css";
 
 import {HashRouter as Router, Routes, Route} from "react-router-dom";
-import Projects from "./pages/projects";
-import Project from "./pages/project";
-import Blog from "./components/blog/blog";
-import AiStudio from "./pages/aiStudio";
-import AdminPanel from "./components/admin/AdminPanel";
 import MacDesktop from "./components/macos/MacDesktop";
 import MacWindow from "./components/macos/MacWindow";
 import { LanguageProvider } from "./data/translations";
 
 import ScrollToTop from "./utils/scrollToTop"
-import { useEffect, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import ErrorBoundary from './components/ErrorBoundary';
+
+const Projects = lazy(() => import("./pages/projects"));
+const Project = lazy(() => import("./pages/project"));
+const Blog = lazy(() => import("./components/blog/blog"));
+const AiStudio = lazy(() => import("./pages/aiStudio"));
+const AdminPanel = lazy(() => import("./components/admin/AdminPanel"));
+
+const WindowFallback = () => (
+	<div className="mac-window-loading" role="status" aria-live="polite">
+		<div className="mac-spinner" />
+		<span>Loading...</span>
+	</div>
+);
+
+const withWindowSuspense = (children) => (
+	<Suspense fallback={<WindowFallback />}>
+		{children}
+	</Suspense>
+);
 
 function App() {
 	const [macBootDone, setMacBootDone] = useState(false);
@@ -97,11 +111,11 @@ function App() {
 							)}
 							<Routes>
 								<Route path="/" element={<MacDesktop />} />
-								<Route path="/projects" element={<MacWindow title="Projects"><Projects /></MacWindow>} />
-								<Route path="/ai-studio" element={<MacWindow title="AI Studio"><AiStudio /></MacWindow>} />
-								<Route path="/project/:id" element={<MacWindow title="Project"><Project /></MacWindow>} />
-								<Route path="/blog" element={<MacWindow title="Blog"><Blog /></MacWindow>} />
-								<Route path="/admin" element={<MacWindow title="Admin"><AdminPanel /></MacWindow>} />
+								<Route path="/projects" element={<MacWindow title="Projects">{withWindowSuspense(<Projects />)}</MacWindow>} />
+								<Route path="/ai-studio" element={<MacWindow title="AI Studio">{withWindowSuspense(<AiStudio />)}</MacWindow>} />
+								<Route path="/project/:id" element={<MacWindow title="Project">{withWindowSuspense(<Project />)}</MacWindow>} />
+								<Route path="/blog" element={<MacWindow title="Blog">{withWindowSuspense(<Blog />)}</MacWindow>} />
+								<Route path="/admin" element={<MacWindow title="Admin">{withWindowSuspense(<AdminPanel />)}</MacWindow>} />
 							</Routes>
 						</div>
 					</Router>

@@ -4,6 +4,23 @@
 - Start: April 22, 2026
 - Time zone: Europe/Moscow
 
+## Current Status (2026-06-29)
+
+The portfolio is in a stable `v0.1.x` phase:
+
+- macOS-inspired home screen, app-like pages, and bilingual RU/EN content are implemented.
+- GitHub project sync, pinned repositories, project previews, and fallback metadata are implemented.
+- Markdown blog posts are generated from the Obsidian posts directory.
+- Local production build and tests pass.
+- Latest local Lighthouse baseline: Performance 87, Accessibility 95, Best Practices 100, SEO 100.
+
+Next focus:
+
+- Validate production GitHub Pages after the next deploy.
+- Validate Open Graph/social preview metadata.
+- Add a short demo/GIF for the Home -> Projects -> Blog -> AI Studio flow.
+- Continue performance work only where measurements show a real bottleneck.
+
 ## Phase 0: Baseline and Stability (by April 24, 2026)
 - Verify production build at `https://xelvhk.github.io/aboutme/`
 - Add/update local run and deploy docs in `README.md`

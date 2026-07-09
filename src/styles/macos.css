@@ -23,6 +23,8 @@ body.macos-body {
 }
 
 .mac-shell {
+  width: 100vw;
+  max-width: 100vw;
   height: 100svh;
   height: 100dvh;
   min-height: 100svh;
@@ -77,12 +79,25 @@ body.macos-body {
   font-weight: 500;
 }
 
+.mac-topbar-mobile-date {
+  display: none;
+}
+
 .mac-topbar-right {
   justify-self: end;
+  min-width: 0;
   opacity: 0.9;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+}
+
+.mac-date-label {
+  white-space: nowrap;
+}
+
+.mac-date-label-compact {
+  display: none;
 }
 
 .mac-lang-btn {
@@ -156,6 +171,9 @@ body.macos-body {
 }
 
 .mac-desktop-layout {
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
   min-height: 0;
   display: grid;
   grid-template-columns: 1fr minmax(290px, 380px);
@@ -167,6 +185,8 @@ body.macos-body {
 }
 
 .mac-left-column {
+  min-width: 0;
+  max-width: 100%;
   min-height: 0;
   display: grid;
   grid-template-rows: auto auto;
@@ -175,6 +195,7 @@ body.macos-body {
 }
 
 .mac-desktop-icons {
+  min-width: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(92px, 92px));
   gap: 1rem;
@@ -218,6 +239,8 @@ body.macos-body {
 .mac-app-label {
   margin-top: 0.4rem;
   font-size: 0.78rem;
+  max-width: 100%;
+  overflow-wrap: anywhere;
   text-align: center;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
@@ -428,6 +451,8 @@ body.macos-body {
 }
 
 .mac-widgets {
+  min-width: 0;
+  max-width: 100%;
   display: grid;
   gap: 0.9rem;
   max-height: 100%;
@@ -436,6 +461,8 @@ body.macos-body {
 }
 
 .mac-widget {
+  min-width: 0;
+  max-width: 100%;
   border-radius: 14px;
   padding: 0.95rem 1rem;
   background: rgba(9, 17, 31, 0.4);
@@ -443,6 +470,7 @@ body.macos-body {
   backdrop-filter: blur(9px);
   position: relative;
   z-index: 6;
+  overflow-wrap: anywhere;
 }
 
 .mac-widget-title {
@@ -451,14 +479,27 @@ body.macos-body {
 }
 
 .mac-widget-text {
+  width: 100%;
+  max-width: 100%;
   font-size: 0.82rem;
   line-height: 1.45;
   opacity: 0.95;
   margin: 0 0 0.35rem;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .mac-widget p:last-child {
   margin-bottom: 0;
+}
+
+.mac-widget-tags {
+  width: 100%;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .mac-widget-list {
@@ -521,6 +562,27 @@ body.macos-body {
   font-size: 0.72rem;
   line-height: 1.45;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.32);
+}
+
+.mac-window-loading {
+  min-height: 52vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 14px;
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.mac-window-loading .mac-spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-top-color: rgba(240, 249, 255, 0.95);
+  animation: mac-spinner 0.85s linear infinite;
 }
 
 @keyframes mac-window-open {
@@ -590,6 +652,7 @@ body.macos-body {
 
   .mac-topbar-right {
     justify-self: end;
+    min-width: 0;
     white-space: nowrap;
     gap: 0.2rem;
   }
@@ -600,17 +663,47 @@ body.macos-body {
   }
 
   .mac-desktop-layout {
+    min-width: 0;
+    width: 100%;
+    max-width: calc(100vw - 1.7rem);
     grid-template-columns: 1fr;
     overflow: auto;
+    overflow-x: hidden;
     padding-bottom: 5.5rem;
+    scrollbar-width: none;
+  }
+
+  .mac-desktop-layout::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mac-left-column {
+    width: 100%;
+    max-width: calc(100vw - 1.7rem);
+    overflow-x: hidden;
   }
 
   .mac-widgets {
+    min-width: 0;
+    width: 100%;
+    max-width: 360px;
     grid-template-columns: 1fr;
+    justify-self: start;
+  }
+
+  .mac-widget {
+    width: 100%;
+    max-width: 360px;
+    box-sizing: border-box;
+  }
+
+  .mac-widget-text {
+    max-width: 100%;
   }
 
   .mac-desktop-icons {
-    grid-template-columns: repeat(3, minmax(92px, 1fr));
+    min-width: 0;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.8rem;
     overflow: visible;
     max-height: none;
@@ -661,6 +754,15 @@ body.macos-body {
   .mac-desktop {
     padding: 0.85rem;
     gap: 0.6rem;
+    overflow-x: hidden;
+  }
+
+  .mac-desktop-icons {
+    width: min(100%, 260px);
+    margin: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: stretch;
+    column-gap: 0.85rem;
   }
 
   .mac-app-icon,
@@ -677,6 +779,41 @@ body.macos-body {
   .mac-topbar {
     font-size: 0.68rem;
     padding: 0 0.42rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.5rem;
+  }
+
+  .mac-topbar-left,
+  .mac-topbar-center,
+  .mac-topbar-right {
+    flex: 0 0 auto;
+  }
+
+  .mac-topbar-center {
+    position: static;
+    transform: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    justify-self: center;
+  }
+
+  .mac-topbar-right {
+    display: none;
+  }
+
+  .mac-date-label-full {
+    display: none;
+  }
+
+  .mac-date-label-compact {
+    display: inline;
+  }
+
+  .mac-topbar-mobile-date {
+    display: inline;
+    opacity: 0.82;
   }
 
   .mac-lang-btn {

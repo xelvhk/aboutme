@@ -122,6 +122,12 @@ const MacDesktop = () => {
     hour: "2-digit",
     minute: "2-digit",
   });
+  const compactDateLabel = now.toLocaleString(locale, {
+    day: "2-digit",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
   const astraToastText = language === "ru" ? "Astra Linux mode enabled" : "Astra Linux mode enabled";
 
   const handleBrandClick = () => {
@@ -174,7 +180,10 @@ const MacDesktop = () => {
     <div className={`mac-shell ${astraMode ? "astra-mode" : ""}`}>
       <div className="mac-topbar">
         <button type="button" className="mac-topbar-left mac-brand-btn" onClick={handleBrandClick}>xelvhk OS</button>
-        <div className="mac-topbar-center">{language === "ru" ? "Рабочий стол" : "Desktop"}</div>
+        <div className="mac-topbar-center">
+          <span>{language === "ru" ? "Рабочий стол" : "Desktop"}</span>
+          <span className="mac-topbar-mobile-date">{compactDateLabel}</span>
+        </div>
         <div className="mac-topbar-right">
           <select
             className="mac-sticker-theme"
@@ -204,7 +213,8 @@ const MacDesktop = () => {
           >
             EN
           </button>
-          <span>{dateLabel}</span>
+          <span className="mac-date-label mac-date-label-full">{dateLabel}</span>
+          <span className="mac-date-label mac-date-label-compact">{compactDateLabel}</span>
         </div>
       </div>
       {astraToastVisible && (

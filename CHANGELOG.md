@@ -6,7 +6,11 @@ The format follows a lightweight release-notes style.
 
 ## [Unreleased]
 
-No unreleased changes yet.
+### Changed
+
+- Split route-level page bundles for Projects, Blog, AI Studio, Project, and Admin.
+- Moved Bootstrap CSS out of the initial app entry and into Bootstrap-dependent routes.
+- Updated roadmap checklist with current Lighthouse and bundle-size baseline.
 
 ## [0.1.0] - 2026-06-09
 

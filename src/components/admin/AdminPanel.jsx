@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Card, Button, Form, Modal, Tab, Tabs } from 'react-bootstrap';
 import { cms } from '../../data/cms';

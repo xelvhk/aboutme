@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Badge } from "react-bootstrap";
 import DOMPurify from "dompurify";
 import { cms } from "../../data/cms";

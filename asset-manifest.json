@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/aboutme/static/css/main.4d34e84c.css",
-    "main.js": "/aboutme/static/js/main.72da7f97.js",
-    "static/css/953.ba617b28.chunk.css": "/aboutme/static/css/953.ba617b28.chunk.css",
+    "main.css": "/aboutme/static/css/main.2f5d1629.css",
+    "main.js": "/aboutme/static/js/main.ed717b7d.js",
+    "static/css/953.2b6c9218.chunk.css": "/aboutme/static/css/953.2b6c9218.chunk.css",
     "static/js/953.18dd3b6b.chunk.js": "/aboutme/static/js/953.18dd3b6b.chunk.js",
     "static/js/918.29228ad0.chunk.js": "/aboutme/static/js/918.29228ad0.chunk.js",
     "static/css/230.f05c0807.chunk.css": "/aboutme/static/css/230.f05c0807.chunk.css",
@@ -20,9 +20,9 @@
     "static/media/gitHub-black.svg": "/aboutme/static/media/gitHub-black.61157a57f0853aa9fd2f3622b730cdfc.svg",
     "static/media/macos-wallpaper.svg": "/aboutme/static/media/macos-wallpaper.d888c2a33cd38186b148.svg",
     "index.html": "/aboutme/index.html",
-    "main.4d34e84c.css.map": "/aboutme/static/css/main.4d34e84c.css.map",
-    "main.72da7f97.js.map": "/aboutme/static/js/main.72da7f97.js.map",
-    "953.ba617b28.chunk.css.map": "/aboutme/static/css/953.ba617b28.chunk.css.map",
+    "main.2f5d1629.css.map": "/aboutme/static/css/main.2f5d1629.css.map",
+    "main.ed717b7d.js.map": "/aboutme/static/js/main.ed717b7d.js.map",
+    "953.2b6c9218.chunk.css.map": "/aboutme/static/css/953.2b6c9218.chunk.css.map",
     "953.18dd3b6b.chunk.js.map": "/aboutme/static/js/953.18dd3b6b.chunk.js.map",
     "918.29228ad0.chunk.js.map": "/aboutme/static/js/918.29228ad0.chunk.js.map",
     "230.f05c0807.chunk.css.map": "/aboutme/static/css/230.f05c0807.chunk.css.map",
@@ -36,7 +36,7 @@
     "980.3419e122.chunk.js.map": "/aboutme/static/js/980.3419e122.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4d34e84c.css",
-    "static/js/main.72da7f97.js"
+    "static/css/main.2f5d1629.css",
+    "static/js/main.ed717b7d.js"
   ]
 }

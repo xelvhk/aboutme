@@ -450,6 +450,28 @@ body.macos-body {
   margin-bottom: 0.5rem;
 }
 
+.mac-window-content .section {
+  min-height: 100%;
+  padding: 1.1rem 0 1.4rem;
+  background: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+}
+
+.mac-window-content .title-1,
+.mac-window-content .title-2,
+.mac-window-content .blog-subtitle {
+  color: rgba(245, 251, 255, 0.98);
+  text-align: center;
+}
+
+.mac-window-content .title-1 {
+  margin-bottom: 0.5rem;
+}
+
 .mac-widgets {
   min-width: 0;
   max-width: 100%;
@@ -664,8 +686,10 @@ body.macos-body {
 
   .mac-desktop-layout {
     min-width: 0;
-    width: 100%;
+    width: min(100%, 760px);
     max-width: calc(100vw - 1.7rem);
+    justify-self: center;
+    margin: 0 auto;
     grid-template-columns: 1fr;
     overflow: auto;
     overflow-x: hidden;
@@ -679,21 +703,26 @@ body.macos-body {
 
   .mac-left-column {
     width: 100%;
-    max-width: calc(100vw - 1.7rem);
+    max-width: 100%;
     overflow-x: hidden;
   }
 
   .mac-widgets {
     min-width: 0;
-    width: 100%;
-    max-width: 360px;
+    width: min(100%, 680px);
+    max-width: 100%;
     grid-template-columns: 1fr;
-    justify-self: start;
+    justify-self: center;
+    scrollbar-width: none;
+  }
+
+  .mac-widgets::-webkit-scrollbar {
+    display: none;
   }
 
   .mac-widget {
     width: 100%;
-    max-width: 360px;
+    max-width: 100%;
     box-sizing: border-box;
   }
 
@@ -703,7 +732,10 @@ body.macos-body {
 
   .mac-desktop-icons {
     min-width: 0;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(100%, 500px);
+    margin: 0 auto;
+    grid-template-columns: repeat(3, minmax(92px, 92px));
+    justify-content: center;
     gap: 0.8rem;
     overflow: visible;
     max-height: none;
@@ -757,11 +789,22 @@ body.macos-body {
     overflow-x: hidden;
   }
 
+  .mac-desktop-layout {
+    width: min(100%, 360px);
+    max-width: calc(100vw - 1.7rem);
+  }
+
+  .mac-widgets {
+    width: 100%;
+    max-width: 100%;
+    justify-self: stretch;
+  }
+
   .mac-desktop-icons {
     width: min(100%, 260px);
-    margin: 0;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    justify-content: stretch;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, minmax(92px, 92px));
+    justify-content: center;
     column-gap: 0.85rem;
   }
 
@@ -780,8 +823,8 @@ body.macos-body {
     font-size: 0.68rem;
     padding: 0 0.42rem;
     display: grid;
-    grid-template-columns: auto 1fr;
-    column-gap: 0.5rem;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    column-gap: 0.35rem;
   }
 
   .mac-topbar-left,
@@ -797,9 +840,24 @@ body.macos-body {
     align-items: center;
     gap: 0.35rem;
     justify-self: center;
+    max-width: calc(100vw - 8rem);
+    overflow: hidden;
   }
 
   .mac-topbar-right {
+    position: absolute;
+    top: 50%;
+    right: 0.32rem;
+    display: inline-flex;
+    justify-self: end;
+    gap: 0.12rem;
+    transform: translateY(-50%);
+    z-index: 23;
+  }
+
+  .mac-topbar-right .mac-sticker-theme,
+  .mac-topbar-right .mac-date-label,
+  .mac-topbar-right > span {
     display: none;
   }
 
@@ -812,15 +870,14 @@ body.macos-body {
   }
 
   .mac-topbar-mobile-date {
-    display: inline;
-    opacity: 0.82;
+    display: none;
   }
 
   .mac-lang-btn {
-    min-width: 32px;
-    min-height: 24px;
-    padding: 0.1rem 0.28rem;
-    font-size: 0.6rem;
+    min-width: 26px;
+    min-height: 22px;
+    padding: 0.08rem 0.22rem;
+    font-size: 0.56rem;
   }
 }
 

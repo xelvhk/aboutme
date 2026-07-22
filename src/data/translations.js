@@ -41,14 +41,18 @@ export const translations = {
       education: 'Education',
       currentWork: "Now focusing on local AI assistants, automation workflows, FastAPI services, and React interfaces.",
       skillsList: [
-        'HTML5',
-        'CSS3',
-        'JavaScript',
+        'Python',
+        'FastAPI',
+        'Aiogram',
+        'Telegram bots',
         'React',
-        'Node.js',
+        'JavaScript',
+        'GitHub API',
+        'Markdown/Obsidian',
+        'PostgreSQL',
+        'Redis',
+        'Celery',
         'Git',
-        'Webpack',
-        'Figma'
       ]
     },
     
@@ -177,14 +181,18 @@ export const translations = {
       education: 'Образование',
       currentWork: 'Сейчас фокус: local AI ассистенты, автоматизация рабочих процессов, сервисы на FastAPI и интерфейсы на React.',
       skillsList: [
-        'HTML5',
-        'CSS3',
-        'JavaScript',
+        'Python',
+        'FastAPI',
+        'Aiogram',
+        'Telegram-боты',
         'React',
-        'Node.js',
+        'JavaScript',
+        'GitHub API',
+        'Markdown/Obsidian',
+        'PostgreSQL',
+        'Redis',
+        'Celery',
         'Git',
-        'Webpack',
-        'Figma'
       ]
     },
     

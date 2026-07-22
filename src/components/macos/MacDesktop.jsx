@@ -308,7 +308,7 @@ const MacDesktop = () => {
             <article className="mac-widget">
               <h3 className="mac-widget-title">{t("about.skills")}</h3>
               <p className="mac-widget-tags">
-                {Array.isArray(skills) ? skills.slice(0, 7).join(" · ") : ""}
+                {Array.isArray(skills) ? skills.join(" · ") : ""}
               </p>
             </article>
           </section>

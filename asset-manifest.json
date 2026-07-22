@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/aboutme/static/css/main.2f5d1629.css",
-    "main.js": "/aboutme/static/js/main.ed717b7d.js",
+    "main.js": "/aboutme/static/js/main.d116b8d9.js",
     "static/css/953.2b6c9218.chunk.css": "/aboutme/static/css/953.2b6c9218.chunk.css",
     "static/js/953.18dd3b6b.chunk.js": "/aboutme/static/js/953.18dd3b6b.chunk.js",
     "static/js/918.29228ad0.chunk.js": "/aboutme/static/js/918.29228ad0.chunk.js",
@@ -21,7 +21,7 @@
     "static/media/macos-wallpaper.svg": "/aboutme/static/media/macos-wallpaper.d888c2a33cd38186b148.svg",
     "index.html": "/aboutme/index.html",
     "main.2f5d1629.css.map": "/aboutme/static/css/main.2f5d1629.css.map",
-    "main.ed717b7d.js.map": "/aboutme/static/js/main.ed717b7d.js.map",
+    "main.d116b8d9.js.map": "/aboutme/static/js/main.d116b8d9.js.map",
     "953.2b6c9218.chunk.css.map": "/aboutme/static/css/953.2b6c9218.chunk.css.map",
     "953.18dd3b6b.chunk.js.map": "/aboutme/static/js/953.18dd3b6b.chunk.js.map",
     "918.29228ad0.chunk.js.map": "/aboutme/static/js/918.29228ad0.chunk.js.map",
@@ -37,6 +37,6 @@
   },
   "entrypoints": [
     "static/css/main.2f5d1629.css",
-    "static/js/main.ed717b7d.js"
+    "static/js/main.d116b8d9.js"
   ]
 }

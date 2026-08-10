@@ -8,7 +8,6 @@ export const translations = {
     header: {
       greeting: "Hello, I'm Lex",
       role: 'React | Python | AI Engineer',
-      downloadCv: 'Download CV'
     },
     // Navigation
     nav: {
@@ -148,7 +147,6 @@ export const translations = {
     header: {
       greeting: 'Привет, я Lex',
       role: 'React | Python | AI Engineer',
-      downloadCv: 'Скачать резюме'
     },
     // Navigation
     nav: {

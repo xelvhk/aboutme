@@ -10,7 +10,7 @@ const apps = [
 
 const quickApps = [
   { label: "GitHub", href: "https://github.com/xelvhk", emoji: "🐙" },
-  { label: "Telegram", href: "https://t.me/hex_lex", emoji: "✈️" },
+  { label: "Telegram", href: "https://t.me/xelvhk", emoji: "✈️" },
   { label: "Email", href: "mailto:khlex93@gmail.com", emoji: "✉️" },
 ];
 
@@ -54,6 +54,7 @@ const MacDesktop = () => {
   const [now, setNow] = useState(() => new Date());
   const [astraMode, setAstraMode] = useState(false);
   const [astraToastVisible, setAstraToastVisible] = useState(false);
+  const [astraToastMessage, setAstraToastMessage] = useState("");
   const [brandClicks, setBrandClicks] = useState(0);
   const [notePositions, setNotePositions] = useState(defaultPositions);
   const [draggedNoteId, setDraggedNoteId] = useState(null);
@@ -128,13 +129,18 @@ const MacDesktop = () => {
     hour: "2-digit",
     minute: "2-digit",
   });
-  const astraToastText = language === "ru" ? "Astra Linux mode enabled" : "Astra Linux mode enabled";
+  const astraToastEnabledText = language === "ru" ? "Astra Linux mode enabled" : "Astra Linux mode enabled";
+  const astraToastDisabledText = language === "ru" ? "Astra Linux mode disabled" : "Astra Linux mode disabled";
 
   const handleBrandClick = () => {
     const next = brandClicks + 1;
     setBrandClicks(next);
     if (next >= 5) {
-      setAstraMode((prev) => !prev);
+      setAstraMode((prev) => {
+        const nextMode = !prev;
+        setAstraToastMessage(nextMode ? astraToastEnabledText : astraToastDisabledText);
+        return nextMode;
+      });
       setAstraToastVisible(true);
       setBrandClicks(0);
       setTimeout(() => setAstraToastVisible(false), 1800);
@@ -219,7 +225,7 @@ const MacDesktop = () => {
       </div>
       {astraToastVisible && (
         <div className="mac-astra-toast" role="status" aria-live="polite">
-          {astraToastText}
+          {astraToastMessage}
         </div>
       )}
 
@@ -315,16 +321,21 @@ const MacDesktop = () => {
         </section>
 
         <nav className="mac-dock" aria-label="Dock">
-          {apps.map((app, idx) => (
-            <NavLink
-              key={`dock-${app.to}`}
-              to={app.to}
-              className="mac-dock-item"
-              style={{ "--dock-index": idx }}
-            >
-              <span className="mac-dock-emoji" aria-hidden="true">{app.emoji}</span>
-            </NavLink>
-          ))}
+          {apps.map((app, idx) => {
+            const label = t(app.labelKey);
+            return (
+              <NavLink
+                key={`dock-${app.to}`}
+                to={app.to}
+                className="mac-dock-item"
+                style={{ "--dock-index": idx }}
+                aria-label={label}
+              >
+                <span className="mac-dock-tooltip" role="tooltip">{label}</span>
+                <span className="mac-dock-emoji" aria-hidden="true">{app.emoji}</span>
+              </NavLink>
+            );
+          })}
         </nav>
       </main>
     </div>

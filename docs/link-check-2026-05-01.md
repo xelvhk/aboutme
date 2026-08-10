@@ -12,7 +12,7 @@ Potential issues: **0**
 - `200` https://github.com/xelvhk/farmgame (ok)
 - `200` https://github.com/xelvhk/fashion_store_with_React (ok)
 - `200` https://github.com/xelvhk/js-marvel (ok)
-- `200` https://t.me/hex_lex (ok)
+- `200` https://t.me/xelvhk (ok)
 
 ## Scope
 - Included: runtime links from `src/**/*.js(x)`.

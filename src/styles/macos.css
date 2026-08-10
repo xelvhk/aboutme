@@ -359,6 +359,38 @@ body.macos-body {
   font-size: 1.6rem;
 }
 
+.mac-dock-tooltip {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.65rem);
+  transform: translate(-50%, 0.35rem) scale(0.96);
+  padding: 0.34rem 0.62rem;
+  border-radius: 999px;
+  background: rgba(20, 36, 56, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(14px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.mac-dock-item:hover .mac-dock-tooltip,
+.mac-dock-item:focus-visible .mac-dock-tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.mac-dock-item:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.72);
+  outline-offset: 4px;
+}
+
 .mac-dock-item:hover {
   transform: translateY(-6px) scale(1.16);
   background: rgba(255, 255, 255, 0.32);
@@ -887,5 +919,9 @@ body.macos-body {
     transform: none;
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  }
+
+  .mac-dock-tooltip {
+    display: none;
   }
 }

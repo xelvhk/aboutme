@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="vasya_ai_landing preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102a43"/>
+      <stop offset="0.5" stop-color="#155e75"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.95"/>
+      <stop offset="0.58" stop-color="#22d3ee" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="24"/></filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#020617" flood-opacity="0.34"/></filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="982" cy="118" r="260" fill="url(#orb)" filter="url(#blur)"/>
+  <circle cx="128" cy="585" r="320" fill="#67e8f9" opacity="0.12" filter="url(#blur)"/>
+  <path d="M0 526 C246 462 424 616 692 548 C888 498 1020 466 1200 516 L1200 675 L0 675 Z" fill="#ffffff" opacity="0.08"/>
+  <g opacity="0.16" stroke="#cffafe" stroke-width="1">
+    <path d="M94 96 H1096"/>
+    <path d="M94 575 H1096"/>
+    <path d="M132 56 V623"/>
+    <path d="M1068 56 V623"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="98" y="86" width="1004" height="503" rx="44" fill="rgba(15,23,42,0.58)" stroke="rgba(255,255,255,0.36)"/>
+    <rect x="98" y="86" width="1004" height="76" rx="44" fill="rgba(255,255,255,0.16)"/>
+    <circle cx="142" cy="124" r="12" fill="#ff6b5f"/>
+    <circle cx="180" cy="124" r="12" fill="#ffd166"/>
+    <circle cx="218" cy="124" r="12" fill="#5bd66f"/>
+    <text x="262" y="132" font-family="Manrope, Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#eff6ff">xelvhk OS / landing preview</text>
+  </g>
+  <g transform="translate(760 220)">
+    <rect x="0" y="0" width="260" height="235" rx="34" fill="rgba(255,255,255,0.12)" stroke="#67e8f9" stroke-opacity="0.48"/>
+    <rect x="30" y="34" width="200" height="18" rx="9" fill="#cffafe" opacity="0.82"/>
+    <rect x="30" y="76" width="150" height="14" rx="7" fill="#67e8f9" opacity="0.48"/>
+    <rect x="30" y="104" width="184" height="14" rx="7" fill="#67e8f9" opacity="0.34"/>
+    <rect x="30" y="148" width="112" height="40" rx="20" fill="#22d3ee" opacity="0.86"/>
+    <text x="86" y="174" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="15" font-weight="900" fill="#083344">CTA</text>
+  </g>
+  <g transform="translate(148 258)">
+    <text x="0" y="0" font-family="Manrope, Inter, Arial, sans-serif" font-size="43" font-weight="900" fill="#f8fafc">vasya_ai_landing</text>
+    <text x="0" y="52" font-family="Manrope, Inter, Arial, sans-serif" font-size="24" font-weight="600" fill="#cffafe">Product landing for local AI assistant</text>
+    <rect x="0" y="92" width="484" height="4" rx="2" fill="#22d3ee"/>
+    <g transform="translate(0 126)">
+      <g transform="translate(0 0)">
+        <rect width="92" height="36" rx="18" fill="rgba(255,255,255,0.16)" stroke="#22d3ee" stroke-opacity="0.48"/>
+        <text x="46" y="24" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#eff6ff">React</text>
+      </g>
+      <g transform="translate(106 0)">
+        <rect width="118" height="36" rx="18" fill="rgba(255,255,255,0.16)" stroke="#22d3ee" stroke-opacity="0.48"/>
+        <text x="59" y="24" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#eff6ff">Landing</text>
+      </g>
+      <g transform="translate(238 0)">
+        <rect width="112" height="36" rx="18" fill="rgba(255,255,255,0.16)" stroke="#22d3ee" stroke-opacity="0.48"/>
+        <text x="56" y="24" text-anchor="middle" font-family="Manrope, Inter, Arial, sans-serif" font-size="14" font-weight="800" fill="#eff6ff">AI UX</text>
+      </g>
+    </g>
+  </g>
+  <g opacity="0.58" fill="none" stroke="#67e8f9" stroke-width="2">
+    <path d="M705 496 h242 q18 0 18 18 v34"/>
+    <path d="M682 526 h138"/>
+    <circle cx="666" cy="526" r="5" fill="#67e8f9"/>
+  </g>
+</svg>

@@ -1,0 +1,33 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Onboardica project preview</title>
+  <desc id="desc">Dashboard-style preview for a self-hosted onboarding SaaS case study.</desc>
+  <rect width="960" height="540" rx="36" fill="#0F172A"/>
+  <rect x="42" y="40" width="876" height="460" rx="26" fill="#F8FAFC"/>
+  <rect x="72" y="76" width="210" height="388" rx="18" fill="#111827"/>
+  <circle cx="112" cy="122" r="18" fill="#38BDF8"/>
+  <rect x="142" y="111" width="96" height="12" rx="6" fill="#E5E7EB"/>
+  <rect x="94" y="174" width="132" height="10" rx="5" fill="#94A3B8"/>
+  <rect x="94" y="216" width="150" height="10" rx="5" fill="#94A3B8"/>
+  <rect x="94" y="258" width="118" height="10" rx="5" fill="#94A3B8"/>
+  <rect x="94" y="398" width="146" height="34" rx="17" fill="#38BDF8"/>
+  <rect x="324" y="82" width="240" height="84" rx="18" fill="#E0F2FE"/>
+  <rect x="592" y="82" width="272" height="84" rx="18" fill="#DCFCE7"/>
+  <rect x="348" y="108" width="112" height="12" rx="6" fill="#0369A1"/>
+  <rect x="348" y="132" width="168" height="14" rx="7" fill="#0F172A"/>
+  <rect x="620" y="108" width="140" height="12" rx="6" fill="#15803D"/>
+  <rect x="620" y="132" width="196" height="14" rx="7" fill="#0F172A"/>
+  <rect x="324" y="198" width="540" height="116" rx="20" fill="#F1F5F9"/>
+  <path d="M360 272 C410 216 460 282 510 238 C560 194 610 278 660 230 C710 184 760 226 828 206" stroke="#2563EB" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="360" cy="272" r="9" fill="#2563EB"/>
+  <circle cx="510" cy="238" r="9" fill="#2563EB"/>
+  <circle cx="660" cy="230" r="9" fill="#2563EB"/>
+  <circle cx="828" cy="206" r="9" fill="#2563EB"/>
+  <rect x="324" y="346" width="160" height="72" rx="18" fill="#FEF3C7"/>
+  <rect x="514" y="346" width="160" height="72" rx="18" fill="#EDE9FE"/>
+  <rect x="704" y="346" width="160" height="72" rx="18" fill="#FFE4E6"/>
+  <rect x="350" y="372" width="100" height="12" rx="6" fill="#92400E"/>
+  <rect x="540" y="372" width="108" height="12" rx="6" fill="#6D28D9"/>
+  <rect x="730" y="372" width="98" height="12" rx="6" fill="#BE123C"/>
+  <text x="324" y="470" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="700">Onboardica</text>
+  <text x="558" y="470" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="22">self-hosted onboarding SaaS MVP</text>
+</svg>

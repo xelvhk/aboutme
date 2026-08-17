@@ -1,0 +1,129 @@
+.onboardica-case {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.onboardica-case-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.onboardica-case-eyebrow {
+  margin: 0 0 0.6rem;
+  color: rgba(191, 219, 254, 0.95);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.onboardica-case-title {
+  margin: 0 0 0.8rem;
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.04;
+}
+
+.onboardica-case-lead {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.onboardica-case-preview {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+}
+
+.onboardica-case-section {
+  margin: 1.25rem 0;
+  padding: 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.onboardica-case-section h2 {
+  margin: 0 0 0.8rem;
+  color: #ffffff;
+  font-size: 1.18rem;
+}
+
+.onboardica-case-section p,
+.onboardica-case-section li {
+  color: rgba(255, 255, 255, 0.86);
+  line-height: 1.62;
+}
+
+.onboardica-case-section ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.onboardica-case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.onboardica-case-proof {
+  padding: 0.85rem;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.34);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.onboardica-case-proof strong {
+  display: block;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.onboardica-case-proof span {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.onboardica-case-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.onboardica-case-shot {
+  margin: 0;
+}
+
+.onboardica-case-shot img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.onboardica-case-shot figcaption {
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  margin-top: 0.45rem;
+}
+
+.onboardica-case-note {
+  margin: 1rem 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .onboardica-case-hero,
+  .onboardica-case-grid,
+  .onboardica-case-gallery {
+    grid-template-columns: 1fr;
+  }
+}

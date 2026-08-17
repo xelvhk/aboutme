@@ -1,4 +1,5 @@
 import React, { useMemo, useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Card, Badge } from 'react-bootstrap';
 import { cms } from '../data/cms';
@@ -170,6 +171,15 @@ const Projects = () => {
 			</div>
 		) : null
 	);
+	const renderCaseStudyLink = (project) => (
+		project.caseStudyLink ? (
+			<div className="projects-card-actions">
+				<Link to={project.caseStudyLink} className="projects-link-btn">
+					{t('projects.caseStudyLink')}
+				</Link>
+			</div>
+		) : null
+	);
 	const pinnedTag = language === 'ru' ? 'Закреплено' : 'Pinned';
 	const getCase = (item, key) => {
 		if (language === 'ru') {
@@ -244,7 +254,8 @@ const Projects = () => {
 																	<Card.Text className="projects-card-excerpt">{getLocalized(p, 'description')}</Card.Text>
 																)}
 																{renderTags(p, [pinnedTag])}
-																{renderGithubLink(p)}
+										{renderCaseStudyLink(p)}
+										{renderGithubLink(p)}
 															</Card.Body>
 														</Card>
 													</Col>
@@ -317,7 +328,8 @@ const Projects = () => {
 																</div>
 															)}
 															{renderTags(p)}
-															{renderGithubLink(p)}
+											{renderCaseStudyLink(p)}
+											{renderGithubLink(p)}
 													</Card.Body>
 												</Card>
 											</Col>

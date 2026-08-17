@@ -7,6 +7,27 @@ import project03Big from "./../img/projects/03-big.jpg";
 const previewBase = `${process.env.PUBLIC_URL || ''}/project-previews`;
 
 const projects = [
+
+	{
+		title: 'Onboardica',
+		title_en: 'Onboardica',
+		title_ru: 'Onboardica',
+		description: 'Sanitized public case study for a private self-hosted onboarding SaaS MVP: FastAPI, Next.js, PostgreSQL, Docker Compose, Telegram, gamification, and readiness analytics.',
+		description_en: 'Sanitized public case study for a private self-hosted onboarding SaaS MVP: FastAPI, Next.js, PostgreSQL, Docker Compose, Telegram, gamification, and readiness analytics.',
+		description_ru: 'Публичный sanitized case study приватного self-hosted SaaS MVP для онбординга: FastAPI, Next.js, PostgreSQL, Docker Compose, Telegram, геймификация и аналитика готовности.',
+		skills: 'FastAPI, Next.js, PostgreSQL, Docker Compose, Telegram, RBAC',
+		topics: ['fastapi', 'next.js', 'postgresql', 'docker', 'saas', 'backend'],
+		img: `${previewBase}/onboardica.svg`,
+		caseStudyLink: '/case-studies/onboardica',
+		pinned: true,
+		problem_en: 'Private repositories are hard to evaluate publicly, but the project needed hiring-ready proof without exposing source code or local data.',
+		solution_en: 'Built a public case study with sanitized screenshots, verification results, architecture boundaries, and an explicit private-source disclosure model.',
+		result_en: 'Created a public evidence artifact for a verified full-stack onboarding product while keeping the codebase private and reviewable on request.',
+		problem_ru: 'Приватные репозитории сложно оценивать публично, но проекту нужно доказательство результата без раскрытия исходников и локальных данных.',
+		solution_ru: 'Собран публичный case study с sanitized-скриншотами, результатами проверок, архитектурными границами и честной моделью раскрытия приватного кода.',
+		result_ru: 'Появился публичный proof-артефакт для проверенного full-stack продукта, при этом код остается приватным и доступным по запросу.',
+		type: 'site',
+	},
 	{
 		title: 'Burgers restaurant site',
 		title_en: 'Burgers restaurant site',

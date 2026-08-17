@@ -15,6 +15,7 @@ const Projects = lazy(() => import("./pages/projects"));
 const Project = lazy(() => import("./pages/project"));
 const Blog = lazy(() => import("./components/blog/blog"));
 const AiStudio = lazy(() => import("./pages/aiStudio"));
+const OnboardicaCaseStudy = lazy(() => import("./pages/onboardicaCaseStudy"));
 const AdminPanel = lazy(() => import("./components/admin/AdminPanel"));
 
 const WindowFallback = () => (
@@ -114,6 +115,7 @@ function App() {
 								<Route path="/projects" element={<MacWindow title="Projects">{withWindowSuspense(<Projects />)}</MacWindow>} />
 								<Route path="/ai-studio" element={<MacWindow title="AI Studio">{withWindowSuspense(<AiStudio />)}</MacWindow>} />
 								<Route path="/project/:id" element={<MacWindow title="Project">{withWindowSuspense(<Project />)}</MacWindow>} />
+								<Route path="/case-studies/onboardica" element={<MacWindow title="Onboardica">{withWindowSuspense(<OnboardicaCaseStudy />)}</MacWindow>} />
 								<Route path="/blog" element={<MacWindow title="Blog">{withWindowSuspense(<Blog />)}</MacWindow>} />
 								<Route path="/admin" element={<MacWindow title="Admin">{withWindowSuspense(<AdminPanel />)}</MacWindow>} />
 							</Routes>

@@ -32,6 +32,14 @@ npm start
 REACT_APP_GITHUB_USER=xelvhk
 ```
 
+Optional Obsidian blog source:
+
+```bash
+OBSIDIAN_POSTS_DIR="/absolute/path/to/Obsidian/posts" npm run sync:obsidian-posts
+```
+
+`npm run build` runs the same sync through `prebuild`. If `OBSIDIAN_POSTS_DIR` does not exist, the script keeps the existing `src/data/blog.generated.json` instead of replacing it with an empty dataset. The script never modifies the Obsidian source directory.
+
 ## Architecture
 - `src/components/macos/*`: desktop shell, topbar, widgets, window system.
 - `src/pages/projects.jsx`: GitHub-driven project listing, topic/category filters, pinned cards.

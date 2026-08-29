@@ -108,33 +108,43 @@ describe('cms.getProjects integration', () => {
         },
         {
           id: 102,
-          name: 'tajnyj_ded_bot',
-          description: 'Secret Santa bot',
+          name: 'college_auto_schedule',
+          description: 'College schedule automation',
           language: 'Python',
-          topics: ['telegram'],
-          html_url: 'https://github.com/xelvhk/tajnyj_ded_bot',
+          topics: [],
+          html_url: 'https://github.com/xelvhk/college_auto_schedule',
           fork: false,
           pushed_at: '2026-04-23T08:00:00Z',
         },
         {
           id: 103,
+          name: 'career-radar',
+          description: 'Career intelligence tool',
+          language: 'Python',
+          topics: [],
+          html_url: 'https://github.com/xelvhk/career-radar',
+          fork: false,
+          pushed_at: '2026-04-22T08:00:00Z',
+        },
+        {
+          id: 104,
           name: 'aboutme',
           description: 'Portfolio',
           language: 'JavaScript',
           topics: ['react'],
           html_url: 'https://github.com/xelvhk/aboutme',
           fork: false,
-          pushed_at: '2026-04-22T08:00:00Z',
+          pushed_at: '2026-04-21T08:00:00Z',
         },
         {
-          id: 104,
-          name: 'attendance_bot',
-          description: 'Attendance bot',
+          id: 105,
+          name: 'tajnyj_ded_bot',
+          description: 'Secret Santa bot',
           language: 'Python',
           topics: ['telegram'],
-          html_url: 'https://github.com/xelvhk/attendance_bot',
+          html_url: 'https://github.com/xelvhk/tajnyj_ded_bot',
           fork: false,
-          pushed_at: '2026-04-21T08:00:00Z',
+          pushed_at: '2026-04-20T08:00:00Z',
         },
       ],
     });
@@ -144,7 +154,8 @@ describe('cms.getProjects integration', () => {
 
     expect(result.filter((item) => item.pinned).map((item) => item.title)).toEqual([
       'vasya_ai',
-      'tajnyj_ded_bot',
+      'college_auto_schedule',
+      'career-radar',
       'aboutme',
     ]);
   });
@@ -229,6 +240,52 @@ describe('cms.getProjects integration', () => {
       description_ru: 'Статическая landing page для презентации vasya_ai: фокус на продуктовой подаче, сценариях использования и понятном frontend-оформлении.',
       topics: ['html', 'css', 'landing'],
       img: '/project-previews/vasya_ai_landing.svg',
+    });
+  });
+
+
+  test('formats new pinned projects with card-ready Russian descriptions, topics, and previews', async () => {
+    global.fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => [
+        {
+          id: 204,
+          name: 'college_auto_schedule',
+          description: 'Local college schedule automation system.',
+          language: 'Python',
+          topics: [],
+          html_url: 'https://github.com/xelvhk/college_auto_schedule',
+          fork: false,
+          pushed_at: '2026-08-22T08:00:00Z',
+        },
+        {
+          id: 205,
+          name: 'career-radar',
+          description: 'Evidence-first career intelligence tool.',
+          language: 'Python',
+          topics: [],
+          html_url: 'https://github.com/xelvhk/career-radar',
+          fork: false,
+          pushed_at: '2026-08-21T08:00:00Z',
+        },
+      ],
+    });
+
+    const { cms } = require('./cms');
+    const result = await cms.getProjects();
+
+    expect(result.slice(0, 2).map((item) => item.title)).toEqual(['college_auto_schedule', 'career-radar']);
+    expect(result[0]).toMatchObject({
+      pinned: true,
+      description_ru: 'Локальная система автоматического составления расписания колледжа с учетом групп, преподавателей, аудиторий и ограничений.',
+      topics: ['python', 'automation', 'scheduling'],
+      img: '/project-previews/college_auto_schedule.svg',
+    });
+    expect(result[1]).toMatchObject({
+      pinned: true,
+      description_ru: 'Локальный career intelligence-инструмент для анализа вакансий, объяснимого matching и evidence-first планирования развития.',
+      topics: ['python', 'local-first', 'career-intelligence'],
+      img: '/project-previews/career-radar.svg',
     });
   });
 

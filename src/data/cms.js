@@ -18,6 +18,8 @@ const GITHUB_CACHE_TTL_MS = 6 * 60 * 60 * 1000;
 const PROJECT_DESCRIPTION_RU = {
     vasya_ai: 'Локальный AI-ассистент для desktop-задач: голосовые команды, автоматизация и развитие агентных сценариев.',
     vasya_ai_landing: 'Статическая landing page для презентации vasya_ai: фокус на продуктовой подаче, сценариях использования и понятном frontend-оформлении.',
+    college_auto_schedule: 'Локальная система автоматического составления расписания колледжа с учетом групп, преподавателей, аудиторий и ограничений.',
+    'career-radar': 'Локальный career intelligence-инструмент для анализа вакансий, объяснимого matching и evidence-first планирования развития.',
     aboutme: 'Портфолио в стиле персональной desktop OS с автосинхронизацией GitHub-проектов и блогом из Markdown.',
     tajnyj_ded_bot: 'Telegram-бот для жеребьевки Тайного Санты с приватным распределением участников.',
     attendance_bot: 'Telegram-бот для учета посещаемости, реализованный на Aiogram.',
@@ -47,7 +49,8 @@ const PROJECT_DESCRIPTION_RU = {
 };
 const PINNED_REPOS = new Set([
     "vasya_ai",
-    "tajnyj_ded_bot",
+    "college_auto_schedule",
+    "career-radar",
     "aboutme",
 ]);
 const PROJECT_PREVIEW_FILES = {
@@ -57,6 +60,8 @@ const PROJECT_PREVIEW_FILES = {
 const PROJECT_TOPIC_FALLBACKS = {
     vasya_ai: ['python', 'ai', 'automation'],
     vasya_ai_landing: ['html', 'css', 'landing'],
+    college_auto_schedule: ['python', 'automation', 'scheduling'],
+    'career-radar': ['python', 'local-first', 'career-intelligence'],
     aboutme: ['react', 'portfolio', 'markdown'],
     tajnyj_ded_bot: ['python', 'telegram', 'aiogram'],
     attendance_bot: ['python', 'telegram', 'aiogram'],

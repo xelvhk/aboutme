@@ -127,7 +127,7 @@ const Projects = () => {
 		);
 	}, [activeTopic, activeCategory, grouped.sites, matchesCategory]);
 
-	const pinnedSites = useMemo(() => (grouped.sites || []).filter((p) => Boolean(p.pinned)), [grouped.sites]);
+	const pinnedSites = useMemo(() => filteredSites.filter((p) => Boolean(p.pinned)), [filteredSites]);
 	const regularSites = useMemo(() => filteredSites.filter((p) => !p.pinned), [filteredSites]);
 
 	const getLocalized = (item, field) => {
@@ -387,7 +387,7 @@ const Projects = () => {
 								</div>
 							) : null}
 
-							{projects.length > 0 && regularSites.length === 0 && pinnedSites.length === 0 ? (
+							{grouped.sites.length > 0 && filteredSites.length === 0 ? (
 								<div className="text-center">
 									<h4>{t('projects.noProjects')}</h4>
 								</div>

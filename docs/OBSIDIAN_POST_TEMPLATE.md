@@ -2,8 +2,8 @@
 
 Папка для постов:
 
-- `03_Knowledge/Posts/ru/`
-- `03_Knowledge/Posts/en/`
+- `30_Knowledge/Posts/ru/`
+- `30_Knowledge/Posts/en/`
 
 Файлы с одинаковым именем в `ru` и `en` объединяются в один билингвальный пост на сайте.
 

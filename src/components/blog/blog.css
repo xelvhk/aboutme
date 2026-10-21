@@ -237,6 +237,17 @@
   line-height: 1.72;
 }
 
+.blog-terminal-content a {
+  color: #92d9ff;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.blog-terminal-content a:hover,
+.blog-terminal-content a:focus-visible {
+  color: #ffffff;
+}
+
 .blog-terminal-content h1,
 .blog-terminal-content h2,
 .blog-terminal-content h3 {

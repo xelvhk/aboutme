@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col, Badge } from "react-bootstrap";
-import DOMPurify from "dompurify";
 import { cms } from "../../data/cms";
 import { useTranslation } from "../../data/translations";
+import { renderMarkdown } from "./markdown";
 import "./blog.css";
 
 const Blog = () => {
@@ -42,19 +42,6 @@ const Blog = () => {
       return post[`${field}_ru`] || post[`${field}_en`] || post[field] || "";
     }
     return post[`${field}_en`] || post[`${field}_ru`] || post[field] || "";
-  };
-
-  const renderMarkdown = (content) => {
-    const html = content
-      .replace(/^# (.*$)/gim, "<h1>$1</h1>")
-      .replace(/^## (.*$)/gim, "<h2>$1</h2>")
-      .replace(/^### (.*$)/gim, "<h3>$1</h3>")
-      .replace(/\*\*(.*)\*\*/gim, "<strong>$1</strong>")
-      .replace(/\*(.*)\*/gim, "<em>$1</em>")
-      .replace(/```([\s\S]*?)```/gim, "<pre><code>$1</code></pre>")
-      .replace(/`(.*?)`/gim, "<code>$1</code>")
-      .replace(/\n/gim, "<br>");
-    return DOMPurify.sanitize(html);
   };
 
   const posts = useMemo(() => {

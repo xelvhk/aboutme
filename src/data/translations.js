@@ -97,9 +97,9 @@ export const translations = {
     aiStudio: {
       title: 'AI Studio',
       subtitle: 'AI videos and creative experiments',
-      inProgress: 'Section in progress',
-      socialBlockTitle: 'Social platforms',
-      buttonSoon: 'Soon'
+      noPosts: 'No posts yet.',
+      embedTitle: 'Instagram post',
+      openPost: 'Open on Instagram'
     },
     
     // Contacts
@@ -237,9 +237,9 @@ export const translations = {
     aiStudio: {
       title: 'AI Studio',
       subtitle: 'ИИ-видео и креативные эксперименты',
-      inProgress: 'Раздел в разработке',
-      socialBlockTitle: 'Социальные платформы',
-      buttonSoon: 'Скоро'
+      noPosts: 'Публикаций пока нет.',
+      embedTitle: 'Публикация Instagram',
+      openPost: 'Открыть в Instagram'
     },
     
     // Contacts
